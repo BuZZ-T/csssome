@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 
 @Component({
   selector: 'app-scroll-snap',
@@ -6,6 +6,9 @@ import { Component } from '@angular/core';
   styleUrl: './scroll-snap.scss',
 })
 export class ScrollSnap {
+  readonly snapTypes = ['mandatory', 'proximity'] as const;
+  selectedSnapType = signal<(typeof this.snapTypes)[number]>('mandatory');
+
   readonly slides = [
     {
       label: '01',
@@ -38,4 +41,8 @@ export class ScrollSnap {
       color: '#6ac9f7',
     },
   ];
+
+  selectSnapType(type: (typeof this.snapTypes)[number]) {
+    this.selectedSnapType.set(type);
+  }
 }

@@ -41,6 +41,52 @@
     }
   }
 
+  &__subnav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.25rem;
+  }
+
+  &__subnav-item {
+    appearance: none;
+    border: 1px solid #2a2a35;
+    background: #15151d;
+    color: #d0d0e0;
+    border-radius: 999px;
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    transition: border-color 0.15s, background 0.15s, color 0.15s, transform 0.15s;
+
+    &:hover {
+      transform: translateY(-1px);
+      border-color: #45455a;
+      background: #1b1b26;
+    }
+
+    &--active {
+      border-color: #7c6af7;
+      background: #211a39;
+      color: #fff;
+    }
+
+    strong {
+      font-size: 0.88rem;
+      font-weight: 700;
+      text-transform: lowercase;
+    }
+  }
+
+  &__subnav-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #8b8ba4;
+  }
+
   &__code-block {
     flex-shrink: 0;
 
