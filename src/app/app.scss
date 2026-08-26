@@ -1,0 +1,15 @@
+.layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+
+  &__nav {
+    width: 260px;
+    flex-shrink: 0;
+  }
+
+  &__content {
+    flex: 1;
+    overflow: hidden;
+  }
+}

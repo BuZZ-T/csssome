@@ -1,0 +1,79 @@
+.nav {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #0f0f13;
+  border-right: 1px solid #2a2a35;
+  overflow-y: auto;
+
+  &__header {
+    padding: 2rem 1.5rem 1.5rem;
+    border-bottom: 1px solid #2a2a35;
+  }
+
+  &__logo {
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: #fff;
+  }
+
+  &__logo-accent {
+    color: #7c6af7;
+  }
+
+  &__subtitle {
+    margin: 0.25rem 0 0;
+    font-size: 0.75rem;
+    color: #6b6b80;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 1rem 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.15s;
+
+    &:hover {
+      background: #1e1e2a;
+    }
+
+    &--active {
+      background: #1e1830;
+
+      .nav__item-label {
+        color: #a89cf7;
+      }
+
+      .nav__item-prop {
+        color: #7c6af7;
+      }
+    }
+  }
+
+  &__item-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #d0d0e0;
+  }
+
+  &__item-prop {
+    font-family: 'Fira Code', 'Cascadia Code', monospace;
+    font-size: 0.72rem;
+    color: #6b6b80;
+  }
+}

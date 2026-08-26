@@ -1,0 +1,37 @@
+<section class="demo">
+  <header class="demo__header">
+    <div class="demo__header-text">
+      <h1 class="demo__title">Scroll Snap</h1>
+      <p class="demo__desc">
+        Use <code>scroll-snap-type</code> on a container and
+        <code>scroll-snap-align</code> on children to create buttery smooth
+        snapping scroll experiences — no JavaScript needed.
+      </p>
+    </div>
+    <div class="demo__code-block">
+      <pre><code>.container &#123;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+&#125;
+
+.slide &#123;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+&#125;</code></pre>
+    </div>
+  </header>
+
+  <div class="snap-container">
+    @for (slide of slides; track slide.label) {
+      <div class="snap-slide" [style.--accent]="slide.color">
+        <span class="snap-slide__number">{{ slide.label }}</span>
+        <h2 class="snap-slide__title">{{ slide.title }}</h2>
+        <p class="snap-slide__body">{{ slide.body }}</p>
+        <div class="snap-slide__indicator">
+          <span class="snap-slide__dot"></span>
+          scroll-snap-align: start
+        </div>
+      </div>
+    }
+  </div>
+</section>
