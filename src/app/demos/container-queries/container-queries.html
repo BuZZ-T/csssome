@@ -1,0 +1,65 @@
+<section class="demo">
+  <header class="demo__header">
+    <div class="demo__header-text">
+      <h1 class="demo__title">Container Queries</h1>
+      <p class="demo__desc">
+        Use <code>container-name</code> on a parent, then target it with
+        <code>@container</code> so components adapt to their own space instead
+        of the viewport.
+      </p>
+    </div>
+    <div class="demo__code-block">
+      <pre><code>.panel &#123;
+  container-name: feature-panel;
+  container-type: inline-size;
+&#125;
+
+@container feature-panel (min-width: 520px) &#123;
+  .card &#123;
+    grid-template-columns: 92px 1fr;
+  &#125;
+&#125;</code></pre>
+    </div>
+  </header>
+
+  <div class="cq-stage">
+    <div class="cq-resizable">
+      <div class="cq-panel">
+        <div class="cq-panel__intro">
+          <div>
+            <p class="cq-panel__eyebrow">Feature panel</p>
+            <h2 class="cq-panel__title">Resize this container</h2>
+          </div>
+          <p class="cq-panel__hint">Drag the right edge wider to trigger the container query.</p>
+        </div>
+
+        <article class="cq-card">
+          <div class="cq-card__avatar">CQ</div>
+          <div class="cq-card__body">
+            <h3 class="cq-card__title">Adaptive card layout</h3>
+            <p class="cq-card__text">
+              The card switches from a stacked layout to a horizontal layout when the
+              named container gets wider.
+            </p>
+          </div>
+          <div class="cq-card__action">Ready</div>
+        </article>
+
+        <div class="cq-stats">
+          @for (stat of stats; track stat.label) {
+            <div class="cq-stat">
+              <strong>{{ stat.value }}</strong>
+              <span>{{ stat.label }}</span>
+            </div>
+          }
+        </div>
+
+        <ul class="cq-bullets">
+          @for (bullet of bullets; track bullet) {
+            <li>{{ bullet }}</li>
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
