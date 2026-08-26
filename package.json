@@ -5,6 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:github": "ng build --configuration production --base-href https://buzz-t.github.io/csssome/",
+    "deploy:github": "npx angular-cli-ghpages --dir=dist/csssome/browser --no-silent",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
