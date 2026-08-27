@@ -190,6 +190,12 @@
   --accent: #7c6af7;
 }
 
+.timeline-frame--view .timeline-card {
+  animation: fade-in linear both;
+  animation-timeline: view();
+  animation-range: entry 0% cover 35%;
+}
+
 @keyframes fade-in {
   from {
     opacity: 0;
@@ -207,36 +213,5 @@
   }
   to {
     transform: scaleX(1);
-  }
-}
-
-@supports (animation-timeline: view()) {
-  .timeline-frame--view .timeline-card {
-    animation: fade-in linear both;
-    animation-timeline: view();
-    animation-range: entry 0% cover 35%;
-  }
-
-  .demo__lorem {
-    animation: fade-in linear both;
-    animation-timeline: view();
-    animation-range: entry 0% cover 25%;
-  }
-
-  .demo__surface--scroll .timeline-card {
-    animation-timeline: scroll();
-    animation-range: entry 10% cover 30%;
-  }
-
-  .demo__surface--scroll .timeline-scroll__progress {
-    animation: rail-progress linear both;
-    animation-timeline: scroll();
-  }
-}
-
-@supports not (animation-timeline: view()) {
-  .timeline-frame--view .timeline-card {
-    opacity: 1;
-    transform: none;
   }
 }
