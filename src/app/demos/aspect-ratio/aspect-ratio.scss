@@ -1,0 +1,112 @@
+.demo {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+
+  &__header {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 2rem 2.5rem;
+    border-bottom: 1px solid #2a2a35;
+    flex-shrink: 0;
+  }
+
+  &__header-text {
+    flex: 1;
+  }
+
+  &__title {
+    margin: 0 0 0.5rem;
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: #fff;
+  }
+
+  &__desc {
+    margin: 0;
+    color: #9090a8;
+    line-height: 1.6;
+
+    code {
+      background: #1e1e2a;
+      padding: 0.1em 0.4em;
+      border-radius: 4px;
+      color: #a89cf7;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.85em;
+    }
+  }
+
+  &__code-block {
+    flex-shrink: 0;
+
+    pre {
+      margin: 0;
+      padding: 1rem 1.25rem;
+      background: #0a0a0f;
+      border: 1px solid #2a2a35;
+      border-radius: 10px;
+      font-size: 0.78rem;
+      line-height: 1.7;
+      color: #a89cf7;
+      font-family: 'Fira Code', 'Cascadia Code', monospace;
+    }
+  }
+
+  &__surface {
+    flex: 1;
+    overflow: auto;
+    padding: 2rem 2.5rem 2.5rem;
+    background: linear-gradient(180deg, rgba(124, 106, 247, 0.05), transparent 30%);
+  }
+}
+
+.ratio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.ratio-card {
+  padding: 1rem;
+  border-radius: 20px;
+  border: 1px solid #2a2a35;
+  background: #15151d;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+}
+
+.ratio-card__media {
+  display: grid;
+  place-items: end start;
+  padding: 1rem;
+  border-radius: 16px;
+  background:
+    radial-gradient(circle at top right, color-mix(in srgb, var(--accent) 35%, transparent), transparent 55%),
+    linear-gradient(135deg, #111118, #1e1e2a);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: #fff;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.ratio-card__body {
+  display: grid;
+  gap: 0.35rem;
+  padding-top: 0.9rem;
+}
+
+.ratio-card__eyebrow {
+  margin: 0;
+  color: #fff;
+  font-weight: 700;
+}
+
+.ratio-card__text {
+  margin: 0;
+  color: #b8b8cb;
+  line-height: 1.6;
+}

@@ -1,0 +1,38 @@
+<section class="demo">
+  <header class="demo__header">
+    <div class="demo__header-text">
+      <h1 class="demo__title">AspectRatio</h1>
+      <p class="demo__desc">
+        Use <code>aspect-ratio</code> to keep boxes proportional without hard-
+        coding width and height pairs.
+      </p>
+    </div>
+
+    <div class="demo__code-block">
+      <pre><code>.card &#123;
+  aspect-ratio: 16 / 9;
+&#125;
+
+.tile &#123;
+  aspect-ratio: 1 / 1;
+&#125;</code></pre>
+    </div>
+  </header>
+
+  <div class="demo__surface">
+    <div class="ratio-grid">
+      @for (example of examples; track example.title) {
+        <article class="ratio-card">
+          <div class="ratio-card__media" [style.--accent]="example.accent" [style.aspect-ratio]="example.ratio">
+            <span>{{ example.ratio }}</span>
+          </div>
+
+          <div class="ratio-card__body">
+            <p class="ratio-card__eyebrow">{{ example.title }}</p>
+            <p class="ratio-card__text">{{ example.description }}</p>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>
