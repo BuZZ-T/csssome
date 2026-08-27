@@ -1,0 +1,242 @@
+.demo {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+
+  &__header {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 2rem 2.5rem;
+    border-bottom: 1px solid #2a2a35;
+    flex-shrink: 0;
+  }
+
+  &__header-text {
+    flex: 1;
+  }
+
+  &__title {
+    margin: 0 0 0.5rem;
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -0.03em;
+  }
+
+  &__desc {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #9090a8;
+    line-height: 1.6;
+
+    code {
+      background: #1e1e2a;
+      padding: 0.1em 0.4em;
+      border-radius: 4px;
+      color: #a89cf7;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.85em;
+    }
+  }
+
+  &__subnav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.25rem;
+  }
+
+  &__subnav-item {
+    appearance: none;
+    border: 1px solid #2a2a35;
+    background: #15151d;
+    color: #d0d0e0;
+    border-radius: 999px;
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    transition: border-color 0.15s, background 0.15s, color 0.15s, transform 0.15s;
+
+    &:hover {
+      transform: translateY(-1px);
+      border-color: #45455a;
+      background: #1b1b26;
+    }
+
+    &--active {
+      border-color: #7c6af7;
+      background: #211a39;
+      color: #fff;
+    }
+
+    strong {
+      font-size: 0.88rem;
+      font-weight: 700;
+      text-transform: lowercase;
+    }
+  }
+
+  &__subnav-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #8b8ba4;
+  }
+
+  &__code-block {
+    flex-shrink: 0;
+
+    pre {
+      margin: 0;
+      padding: 1rem 1.25rem;
+      background: #0a0a0f;
+      border: 1px solid #2a2a35;
+      border-radius: 10px;
+      font-size: 0.78rem;
+      line-height: 1.7;
+      color: #a89cf7;
+      font-family: 'Fira Code', 'Cascadia Code', monospace;
+    }
+  }
+
+  &__surface {
+    flex: 1;
+    overflow: auto;
+    padding: 2rem 2.5rem 2.5rem;
+  }
+
+  &__surface--view {
+    background: linear-gradient(180deg, rgba(124, 106, 247, 0.05), transparent 30%);
+  }
+
+  &__surface--scroll {
+    background: linear-gradient(180deg, rgba(74, 214, 255, 0.04), transparent 30%);
+    display: grid;
+    gap: 1rem;
+  }
+
+  &__lorem {
+    max-width: 760px;
+    margin: 0 0 1rem;
+    color: #a8a8be;
+    line-height: 1.75;
+
+    p {
+      margin: 0 0 1rem;
+    }
+  }
+}
+
+.timeline-frame {
+  border: 1px solid #2a2a35;
+  border-radius: 20px;
+  background: #15151d;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+}
+
+.timeline-frame--view {
+  padding: 1rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.timeline-card {
+  padding: 1rem 1.1rem;
+  border-radius: 18px;
+  background: #1d1d29;
+  border: 1px solid #2a2a35;
+  color: #fff;
+
+  &__eyebrow {
+    margin: 0 0 0.5rem;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+  }
+
+  &__title {
+    margin: 0 0 0.45rem;
+    font-size: 1.15rem;
+  }
+
+  &__body {
+    margin: 0;
+    color: #b8b8cb;
+    line-height: 1.6;
+  }
+}
+
+.timeline-card--scroll {
+  min-height: 240px;
+}
+
+.timeline-scroll__progress {
+  position: sticky;
+  top: 0;
+  height: 10px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #7c6af7, #4ad6ff);
+  transform-origin: left center;
+  animation: rail-progress linear both;
+  animation-timeline: scroll();
+}
+
+.timeline-card {
+  --accent: #7c6af7;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes rail-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  .timeline-frame--view .timeline-card {
+    animation: fade-in linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 35%;
+  }
+
+  .demo__lorem {
+    animation: fade-in linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 25%;
+  }
+
+  .demo__surface--scroll .timeline-card {
+    animation-timeline: scroll();
+    animation-range: entry 10% cover 30%;
+  }
+
+  .demo__surface--scroll .timeline-scroll__progress {
+    animation: rail-progress linear both;
+    animation-timeline: scroll();
+  }
+}
+
+@supports not (animation-timeline: view()) {
+  .timeline-frame--view .timeline-card {
+    opacity: 1;
+    transform: none;
+  }
+}

@@ -1,0 +1,72 @@
+<section class="demo">
+  <header class="demo__header">
+    <div class="demo__header-text">
+      <h1 class="demo__title">Animation Timeline</h1>
+      <p class="demo__desc">
+        Use <code>animation-timeline</code> to connect animations to either an
+        element’s visibility with <code>view()</code> or a scroll container
+        with <code>scroll()</code>.
+      </p>
+
+      <div class="demo__subnav" role="tablist" aria-label="Animation timeline mode">
+        @for (mode of modes; track mode.id) {
+          <button
+            type="button"
+            class="demo__subnav-item"
+            [class.demo__subnav-item--active]="selectedMode() === mode.id"
+            (click)="selectMode(mode.id)"
+          >
+            <span class="demo__subnav-label">animation-timeline</span>
+            <strong>{{ mode.label }}</strong>
+          </button>
+        }
+      </div>
+    </div>
+
+    <div class="demo__code-block">
+      @if (selectedMode() === 'view') {
+        <pre><code>.card &#123;
+  animation: fade-in 1s linear both;
+  animation-timeline: view();
+  animation-range: entry 0% cover 35%;
+&#125;</code></pre>
+      } @else {
+        <pre><code>.demo__surface--scroll &#123;
+  overflow-y: auto;
+&#125;
+
+.timeline-card &#123;
+  animation: fade-in 1s linear both;
+  animation-timeline: scroll();
+  animation-range: entry 10% cover 30%;
+&#125;</code></pre>
+      }
+    </div>
+  </header>
+
+  @if (selectedMode() === 'view') {
+    <div class="demo__surface demo__surface--view">
+      <div class="timeline-frame timeline-frame--view">
+        @for (card of viewCards; track card.eyebrow) {
+          <article class="timeline-card" [style.--accent]="card.accent">
+            <p class="timeline-card__eyebrow">{{ card.eyebrow }}</p>
+            <h2 class="timeline-card__title">{{ card.title }}</h2>
+            <p class="timeline-card__body">{{ card.body }}</p>
+          </article>
+        }
+      </div>
+    </div>
+  } @else {
+    <div class="demo__surface demo__surface--scroll">
+      <div class="timeline-scroll__progress"></div>
+
+      @for (card of scrollCards; track card.eyebrow) {
+        <article class="timeline-card timeline-card--scroll" [style.--accent]="card.accent">
+          <p class="timeline-card__eyebrow">{{ card.eyebrow }}</p>
+          <h2 class="timeline-card__title">{{ card.title }}</h2>
+          <p class="timeline-card__body">{{ card.body }}</p>
+        </article>
+      }
+    </div>
+  }
+</section>
