@@ -2,6 +2,7 @@ import { Component, signal, Type } from '@angular/core';
 import { NgComponentOutlet } from '@angular/common';
 import { Nav, DemoEntry } from './nav/nav';
 import { AspectRatioDemo } from './demos/aspect-ratio/aspect-ratio';
+import { LightDarkDemo } from './demos/light-dark/light-dark';
 import { ScrollSnap } from './demos/scroll-snap/scroll-snap';
 import { ContainerQueries } from './demos/container-queries/container-queries';
 import { AnimationTimeline } from './demos/animation-timeline/animation-timeline';
@@ -18,6 +19,7 @@ export class App {
     { id: 'animation-timeline', label: 'Animation Timeline', cssProperty: 'animation-timeline' },
     { id: 'aspect-ratio', label: 'AspectRatio', cssProperty: 'aspect-ratio' },
     { id: 'container-queries', label: 'Container Queries', cssProperty: 'container-name' },
+    { id: 'light-dark', label: 'LightDark', cssProperty: 'light-dark()' },
     { id: 'scroll-snap', label: 'Scroll Snap', cssProperty: 'scroll-snap-type' },
   ];
 
@@ -26,6 +28,7 @@ export class App {
     'animation-timeline': AnimationTimeline,
     'aspect-ratio': AspectRatioDemo,
     'container-queries': ContainerQueries,
+    'light-dark': LightDarkDemo,
     'scroll-snap': ScrollSnap,
   };
 

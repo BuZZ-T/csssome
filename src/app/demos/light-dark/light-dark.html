@@ -1,0 +1,64 @@
+<section class="demo">
+  <header class="demo__header">
+    <div class="demo__header-text">
+      <h1 class="demo__title">LightDark</h1>
+      <p class="demo__desc">
+        Use <code>light-dark()</code> to define colors that adapt to the active
+        color scheme without extra theme classes.
+      </p>
+    </div>
+
+    <div class="demo__code-block">
+      <pre><code>:root &#123;
+  color-scheme: light dark;
+&#125;
+
+.card &#123;
+  background: light-dark(#f7f8fc, #171722);
+  color: light-dark(#19212d, #f5f7fb);
+&#125;</code></pre>
+    </div>
+  </header>
+
+  <div class="demo__surface">
+    <div class="ld-layout">
+      <article class="ld-preview">
+        <p class="ld-eyebrow">System-aware preview</p>
+        <h2>One component, two modes</h2>
+        <p class="ld-copy">
+          This surface uses <code>light-dark()</code> for its background, text,
+          and borders so it follows the active theme automatically.
+        </p>
+
+        <div class="ld-pill-row">
+          <span>color-scheme: light dark</span>
+          <span>light-dark()</span>
+          <span>no theme switch class</span>
+        </div>
+      </article>
+
+      <aside class="ld-info">
+        <p class="ld-eyebrow">DevTools toggle</p>
+        <h2>Force a color scheme in the browser</h2>
+        @for (tip of tips; track tip.browser) {
+          <section class="ld-tip">
+            <h3>{{ tip.browser }}</h3>
+            <p>{{ tip.text }}</p>
+          </section>
+        }
+      </aside>
+    </div>
+
+    <div class="ld-grid">
+      @for (example of examples; track example.label) {
+        <article class="ld-example">
+          <div class="ld-example__header">
+            <span>{{ example.label }}</span>
+          </div>
+          <code>{{ example.snippet }}</code>
+          <p>{{ example.note }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>
