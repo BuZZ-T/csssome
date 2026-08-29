@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
+import { SupportBoxComponent } from '../../support-box/support-box';
 
 @Component({
   selector: 'app-aspect-ratio-demo',
+  imports: [SupportBoxComponent],
   templateUrl: './aspect-ratio.html',
   styleUrl: './aspect-ratio.scss',
 })

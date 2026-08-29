@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
+import { SupportBoxComponent } from '../../support-box/support-box';
 
 @Component({
   selector: 'app-container-queries',
+  imports: [SupportBoxComponent],
   templateUrl: './container-queries.html',
   styleUrl: './container-queries.scss',
 })

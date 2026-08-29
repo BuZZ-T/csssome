@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
+import { SupportBoxComponent } from '../../support-box/support-box';
 
 @Component({
   selector: 'app-light-dark-demo',
+  imports: [SupportBoxComponent],
   templateUrl: './light-dark.html',
   styleUrl: './light-dark.scss',
 })

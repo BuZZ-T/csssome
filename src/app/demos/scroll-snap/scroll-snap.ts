@@ -1,7 +1,9 @@
 import { Component, signal } from '@angular/core';
+import { SupportBoxComponent } from '../../support-box/support-box';
 
 @Component({
   selector: 'app-scroll-snap',
+  imports: [SupportBoxComponent],
   templateUrl: './scroll-snap.html',
   styleUrl: './scroll-snap.scss',
 })

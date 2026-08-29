@@ -1,0 +1,29 @@
+<div class="support-box">
+  <p class="support-box__title">{{ title() }}</p>
+  <table class="support-table">
+    <thead>
+      <tr>
+        <th>Chrome</th>
+        <th>Edge</th>
+        <th>Firefox</th>
+        <th>Safari</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ chromeVersion() }}</td>
+        <td>{{ edgeVersion() }}</td>
+        <td>{{ firefoxVersion() }}</td>
+        <td>{{ safariVersion() }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="support-box__baseline">
+    Baseline: {{ baseline() }}
+  </p>
+  <p class="support-box__links">
+    <a [href]="caniuseUrl()" target="_blank" rel="noopener noreferrer">Can I Use</a>
+    <span>·</span>
+    <a [href]="mdnUrl()" target="_blank" rel="noopener noreferrer">MDN</a>
+  </p>
+</div>

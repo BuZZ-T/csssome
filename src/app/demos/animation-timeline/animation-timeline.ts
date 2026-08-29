@@ -1,9 +1,11 @@
 import { Component, signal } from '@angular/core';
+import { SupportBoxComponent } from '../../support-box/support-box';
 
 type TimelineMode = 'view' | 'scroll';
 
 @Component({
   selector: 'app-animation-timeline',
+  imports: [SupportBoxComponent],
   templateUrl: './animation-timeline.html',
   styleUrl: './animation-timeline.scss',
 })
