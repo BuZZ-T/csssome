@@ -2,6 +2,7 @@ import { Component, signal, Type } from '@angular/core';
 import { NgComponentOutlet } from '@angular/common';
 import { Nav, DemoEntry } from './nav/nav';
 import { AspectRatioDemo } from './demos/aspect-ratio/aspect-ratio';
+import { BaseSelectDemo } from './demos/base-select/base-select';
 import { LightDarkDemo } from './demos/light-dark/light-dark';
 import { ScrollSnap } from './demos/scroll-snap/scroll-snap';
 import { ContainerQueries } from './demos/container-queries/container-queries';
@@ -18,6 +19,7 @@ export class App {
   readonly demos: DemoEntry[] = [
     { id: 'animation-timeline', label: 'Animation Timeline', cssProperty: 'animation-timeline' },
     { id: 'aspect-ratio', label: 'AspectRatio', cssProperty: 'aspect-ratio' },
+    { id: 'base-select', label: 'BaseSelect', cssProperty: 'appearance: base-select' },
     { id: 'container-queries', label: 'Container Queries', cssProperty: 'container-name' },
     { id: 'light-dark', label: 'LightDark', cssProperty: 'light-dark()' },
     { id: 'scroll-snap', label: 'Scroll Snap', cssProperty: 'scroll-snap-type' },
@@ -27,6 +29,7 @@ export class App {
   readonly components: Record<string, Type<any>> = {
     'animation-timeline': AnimationTimeline,
     'aspect-ratio': AspectRatioDemo,
+    'base-select': BaseSelectDemo,
     'container-queries': ContainerQueries,
     'light-dark': LightDarkDemo,
     'scroll-snap': ScrollSnap,

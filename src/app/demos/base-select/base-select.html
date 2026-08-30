@@ -1,0 +1,61 @@
+<section class="demo">
+  <header class="demo__header">
+    <div class="demo__header-text">
+      <h1 class="demo__title">BaseSelect</h1>
+      <p class="demo__desc">
+        Use <code>appearance: base-select</code> to style a native
+        <code>&lt;select&gt;</code> and its picker while keeping native behavior.
+      </p>
+      <app-support-box
+        chromeVersion="135"
+        edgeVersion="135"
+        firefoxVersion="149 (flag)"
+        safariVersion="27"
+        baseline="Not Baseline (limited browser support)"
+        caniuseUrl="https://caniuse.com/?search=base-select"
+        mdnUrl="https://developer.mozilla.org/docs/Web/CSS/appearance#base-select"
+      ></app-support-box>
+    </div>
+
+    <div class="demo__code-block">
+      <pre><code>select.custom &#123;
+  appearance: base-select;
+&#125;
+
+select.custom::picker(select) &#123;
+  appearance: base-select;
+  border-radius: 12px;
+&#125;</code></pre>
+    </div>
+  </header>
+
+  <div class="demo__surface">
+    <div class="bs-layout">
+      <article class="bs-card">
+        <p class="bs-eyebrow">Default select</p>
+        <label class="bs-label" for="native-theme">Theme</label>
+        <select id="native-theme" class="bs-native">
+          @for (option of options; track option) {
+            <option [value]="option">{{ option }}</option>
+          }
+        </select>
+      </article>
+
+      <article class="bs-card">
+        <p class="bs-eyebrow">appearance: base-select</p>
+        <label class="bs-label" for="custom-theme">Theme</label>
+        <select id="custom-theme" class="bs-custom">
+          @for (option of options; track option) {
+            <option [value]="option">{{ option }}</option>
+          }
+        </select>
+      </article>
+    </div>
+
+    <ul class="bs-notes">
+      @for (note of notes; track note) {
+        <li>{{ note }}</li>
+      }
+    </ul>
+  </div>
+</section>
