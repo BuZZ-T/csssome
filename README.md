@@ -10,6 +10,7 @@ Live demo: https://buzz-t.github.io/cssssome
 - **Container Queries** — a responsive panel using `container-name` and `@container`.
 - **LightDark** — theme-aware color examples using `light-dark()`.
 - **Scroll Snap** — snap-scrolling demo with `scroll-snap-type`.
+- **ShapeOutside** — wrapped text around a transparent image using `shape-outside`.
 - **View-Transition** — shared-element transitions between two sub-pages.
 
 ## Notes

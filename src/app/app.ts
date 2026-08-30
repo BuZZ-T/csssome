@@ -5,6 +5,7 @@ import { AspectRatioDemo } from './demos/aspect-ratio/aspect-ratio';
 import { BaseSelectDemo } from './demos/base-select/base-select';
 import { LightDarkDemo } from './demos/light-dark/light-dark';
 import { ScrollSnap } from './demos/scroll-snap/scroll-snap';
+import { ShapeOutsideDemo } from './demos/mask-wrap/shape-outside';
 import { ContainerQueries } from './demos/container-queries/container-queries';
 import { AnimationTimeline } from './demos/animation-timeline/animation-timeline';
 
@@ -23,6 +24,7 @@ export class App {
     { id: 'container-queries', label: 'Container Queries', cssProperty: 'container-name' },
     { id: 'light-dark', label: 'LightDark', cssProperty: 'light-dark()' },
     { id: 'scroll-snap', label: 'Scroll Snap', cssProperty: 'scroll-snap-type' },
+    { id: 'shape-outside', label: 'ShapeOutside', cssProperty: 'shape-outside' },
   ];
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -33,6 +35,7 @@ export class App {
     'container-queries': ContainerQueries,
     'light-dark': LightDarkDemo,
     'scroll-snap': ScrollSnap,
+    'shape-outside': ShapeOutsideDemo,
   };
 
   activeId = signal(this.demos[0].id);

@@ -1,0 +1,48 @@
+<section class="demo">
+  <header class="demo__header">
+    <div class="demo__header-text">
+      <h1 class="demo__title">ShapeOutside</h1>
+      <p class="demo__desc">
+        Use <code>shape-outside: url(...)</code> with <code>shape-margin</code>
+        to wrap text around a transparent image.
+      </p>
+      <app-support-box
+        chromeVersion="37"
+        edgeVersion="37"
+        firefoxVersion="62"
+        safariVersion="10.1"
+        baseline="Widely available"
+        caniuseUrl="https://caniuse.com/css-shapes"
+        mdnUrl="https://developer.mozilla.org/docs/Web/CSS/Reference/Properties/shape-outside"
+      ></app-support-box>
+    </div>
+
+    <div class="demo__code-block">
+      <pre><code>.float &#123;
+  shape-outside: url('/images/shape-outside.svg');
+  shape-margin: 1rem;
+&#125;
+
+.photo &#123;
+  -webkit-mask-image: url('/images/shape-outside.svg');
+  mask-image: url('/images/shape-outside.svg');
+&#125;</code></pre>
+    </div>
+  </header>
+
+  <div class="demo__surface">
+    <article class="mask-story">
+      <figure class="mask-float">
+        <img
+          src="/images/shape-outside.svg"
+          alt="Abstract elliptical landscape used as masked image example"
+          class="mask-float__image"
+        />
+      </figure>
+
+      @for (paragraph of paragraphs; track paragraph) {
+        <p>{{ paragraph }}</p>
+      }
+    </article>
+  </div>
+</section>
