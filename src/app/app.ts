@@ -19,12 +19,12 @@ export class App {
   // Keep this list alphabetically sorted by label.
   readonly demos: DemoEntry[] = [
     { id: 'animation-timeline', label: 'Animation Timeline', cssProperty: 'animation-timeline' },
-    { id: 'aspect-ratio', label: 'AspectRatio', cssProperty: 'aspect-ratio' },
-    { id: 'base-select', label: 'BaseSelect', cssProperty: 'appearance: base-select' },
+    { id: 'aspect-ratio', label: 'Aspect Ratio', cssProperty: 'aspect-ratio' },
+    { id: 'base-select', label: 'Base Select', cssProperty: 'appearance: base-select' },
     { id: 'container-queries', label: 'Container Queries', cssProperty: 'container-name' },
-    { id: 'light-dark', label: 'LightDark', cssProperty: 'light-dark()' },
+    { id: 'light-dark', label: 'Light Dark', cssProperty: 'light-dark()' },
     { id: 'scroll-snap', label: 'Scroll Snap', cssProperty: 'scroll-snap-type' },
-    { id: 'shape-outside', label: 'ShapeOutside', cssProperty: 'shape-outside' },
+    { id: 'shape-outside', label: 'Shape Outside', cssProperty: 'shape-outside' },
   ];
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
