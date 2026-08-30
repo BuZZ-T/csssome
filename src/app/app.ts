@@ -3,6 +3,7 @@ import { NgComponentOutlet } from '@angular/common';
 import { Nav, DemoEntry } from './nav/nav';
 import { AspectRatioDemo } from './demos/aspect-ratio/aspect-ratio';
 import { BaseSelectDemo } from './demos/base-select/base-select';
+import { FontVariantNumericDemo } from './demos/font-variant-numeric/font-variant-numeric';
 import { LightDarkDemo } from './demos/light-dark/light-dark';
 import { ScrollSnap } from './demos/scroll-snap/scroll-snap';
 import { ShapeOutsideDemo } from './demos/mask-wrap/shape-outside';
@@ -22,6 +23,7 @@ export class App {
     { id: 'aspect-ratio', label: 'Aspect Ratio', cssProperty: 'aspect-ratio' },
     { id: 'base-select', label: 'Base Select', cssProperty: 'appearance: base-select' },
     { id: 'container-queries', label: 'Container Queries', cssProperty: 'container-name' },
+    { id: 'font-variant-numeric', label: 'Font Variant Numeric', cssProperty: 'font-variant-numeric' },
     { id: 'light-dark', label: 'Light Dark', cssProperty: 'light-dark()' },
     { id: 'scroll-snap', label: 'Scroll Snap', cssProperty: 'scroll-snap-type' },
     { id: 'shape-outside', label: 'Shape Outside', cssProperty: 'shape-outside' },
@@ -33,6 +35,7 @@ export class App {
     'aspect-ratio': AspectRatioDemo,
     'base-select': BaseSelectDemo,
     'container-queries': ContainerQueries,
+    'font-variant-numeric': FontVariantNumericDemo,
     'light-dark': LightDarkDemo,
     'scroll-snap': ScrollSnap,
     'shape-outside': ShapeOutsideDemo,

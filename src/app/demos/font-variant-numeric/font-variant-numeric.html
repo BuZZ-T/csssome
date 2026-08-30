@@ -1,0 +1,81 @@
+<section class="demo">
+  <header class="demo__header">
+    <div class="demo__header-text">
+      <h1 class="demo__title">Font Variant Numeric</h1>
+      <p class="demo__desc">
+        Use <code>font-variant-numeric</code> to choose numeric styles for digits,
+        ordinals, fractions, and tabular alignment.
+      </p>
+      <app-support-box
+        chromeVersion="52"
+        edgeVersion="52"
+        firefoxVersion="34"
+        safariVersion="9.1"
+        baseline="Widely available"
+        caniuseUrl="https://caniuse.com/?search=font-variant-numeric"
+        mdnUrl="https://developer.mozilla.org/docs/Web/CSS/Reference/Properties/font-variant-numeric"
+      ></app-support-box>
+
+      <div class="demo__subnav" role="tablist" aria-label="Font variant numeric values">
+        @for (variant of variants; track variant.id) {
+          <button
+            type="button"
+            class="demo__subnav-item"
+            [class.demo__subnav-item--active]="selectedVariant().id === variant.id"
+            (click)="selectVariant(variant)"
+          >
+            <span class="demo__subnav-label">font-variant-numeric</span>
+            <strong>{{ variant.label }}</strong>
+          </button>
+        }
+      </div>
+    </div>
+
+    <div class="demo__code-block">
+      <pre><code>.sample &#123;
+  font-variant-numeric: {{ selectedVariant().value }};
+&#125;</code></pre>
+    </div>
+  </header>
+
+  <div class="demo__surface">
+    <div class="fvn-layout">
+      <article class="fvn-preview" [style.font-variant-numeric]="selectedVariant().value">
+        <p class="fvn-eyebrow">Selected value</p>
+        <h2>{{ selectedVariant().label }}</h2>
+        <p class="fvn-description">{{ selectedVariant().description }}</p>
+
+        <table class="fvn-table">
+          <thead>
+            <tr>
+              <th>Revenue</th>
+              <th>Orders</th>
+              <th>Return rate</th>
+              <th>Rank</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (row of sampleRows; track $index) {
+              <tr>
+                <td>{{ row.revenue }}</td>
+                <td>{{ row.orders }}</td>
+                <td>{{ row.returnRate }}</td>
+                <td>{{ row.rank }}</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </article>
+
+      <article class="fvn-reference">
+        <p class="fvn-eyebrow">What to look for</p>
+        <ul>
+          <li>Ordinals like <strong>1st</strong> and <strong>2nd</strong></li>
+          <li>Slashed zeros in codes and measurements</li>
+          <li>Fractions rendered diagonally or stacked</li>
+          <li>Tabular digits for aligned financial data</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>

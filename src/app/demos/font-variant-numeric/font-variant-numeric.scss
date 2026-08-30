@@ -1,0 +1,236 @@
+.demo {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+
+  &__header {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 2rem 2.5rem;
+    border-bottom: 1px solid #2a2a35;
+    flex-shrink: 0;
+  }
+
+  &__header-text {
+    flex: 1;
+  }
+
+  &__title {
+    margin: 0 0 0.5rem;
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: #fff;
+  }
+
+  &__desc {
+    margin: 0;
+    color: #9090a8;
+    line-height: 1.6;
+
+    code {
+      background: #1e1e2a;
+      padding: 0.1em 0.4em;
+      border-radius: 4px;
+      color: #a89cf7;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.85em;
+    }
+  }
+
+  &__code-block {
+    flex-shrink: 0;
+
+    pre {
+      margin: 0;
+      padding: 1rem 1.25rem;
+      background: #0a0a0f;
+      border: 1px solid #2a2a35;
+      border-radius: 10px;
+      font-size: 0.78rem;
+      line-height: 1.7;
+      color: #a89cf7;
+      font-family: 'Fira Code', 'Cascadia Code', monospace;
+    }
+  }
+
+  &__surface {
+    flex: 1;
+    overflow: auto;
+    padding: 2rem 2.5rem 2.5rem;
+    background: linear-gradient(180deg, rgba(124, 106, 247, 0.05), transparent 30%);
+  }
+
+  &__subnav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.25rem;
+  }
+
+  &__subnav-item {
+    appearance: none;
+    border: 1px solid #2a2a35;
+    background: #15151d;
+    color: #d0d0e0;
+    border-radius: 999px;
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    transition:
+      border-color 0.15s,
+      background 0.15s,
+      color 0.15s,
+      transform 0.15s;
+
+    &:hover {
+      transform: translateY(-1px);
+      border-color: #45455a;
+      background: #1b1b26;
+    }
+
+    &--active {
+      border-color: #7c6af7;
+      background: #211a39;
+      color: #fff;
+    }
+
+    strong {
+      font-size: 0.88rem;
+      font-weight: 700;
+      text-transform: lowercase;
+    }
+  }
+
+  &__subnav-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #8b8ba4;
+  }
+}
+
+.fvn-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(260px, 360px);
+  gap: 1rem;
+}
+
+.fvn-preview,
+.fvn-reference {
+  border-radius: 20px;
+  border: 1px solid #2a2a35;
+  background: #15151d;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+  padding: 1.25rem;
+}
+
+.fvn-preview {
+  font-size: 1.05rem;
+}
+
+.fvn-eyebrow {
+  margin: 0 0 0.5rem;
+  color: #a89cf7;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
+.fvn-preview h2 {
+  margin: 0;
+  font-size: 1.6rem;
+  color: #fff;
+}
+
+.fvn-description {
+  margin: 0.5rem 0 1rem;
+  color: #b8b8cb;
+  line-height: 1.6;
+}
+
+.fvn-metric-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+}
+
+.fvn-metric {
+  padding: 0.85rem 0.9rem;
+  border-radius: 14px;
+  border: 1px solid #2a2a35;
+  background: #1b1b26;
+
+  span {
+    display: block;
+    margin-bottom: 0.4rem;
+    color: #8b8ba4;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  strong {
+    font-size: 1.5rem;
+    color: #fff;
+  }
+}
+
+.fvn-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+
+  thead {
+    background: #2a2a35;
+  }
+
+  th {
+    padding: 0.9rem;
+    color: #a89cf7;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    text-align: right;
+    border: 1px solid #3a3a45;
+
+    &:first-child {
+      text-align: left;
+    }
+  }
+
+  td {
+    padding: 0.9rem;
+    color: #fff;
+    font-size: 1.1rem;
+    text-align: right;
+    border: 1px solid #2a2a35;
+    background: #1b1b26;
+
+    &:first-child {
+      text-align: left;
+      color: #b8b8cb;
+      font-size: 0.95rem;
+    }
+  }
+
+  tbody tr:hover {
+    background: #222233;
+  }
+}
+
+.fvn-reference {
+  color: #c8c8d8;
+}
+
+.fvn-reference ul {
+  margin: 0.75rem 0 0;
+  padding-left: 1.2rem;
+  line-height: 1.7;
+}
