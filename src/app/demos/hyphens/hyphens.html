@@ -1,0 +1,83 @@
+<section class="demo">
+  <header class="demo__header">
+    <div class="demo__header-text">
+      <h1 class="demo__title">Hyphens</h1>
+      <p class="demo__desc">
+        Use <code>hyphens</code> to control how words are broken across lines.
+        <code>manual</code> only breaks at a soft hyphen (<code>&amp;shy;</code>),
+        while <code>auto</code> lets the browser hyphenate based on the
+        <code>lang</code> attribute.
+      </p>
+      <app-support-box
+        chromeVersion="88"
+        edgeVersion="88"
+        firefoxVersion="43"
+        safariVersion="17"
+        baseline="Widely available"
+        caniuseUrl="https://caniuse.com/css-hyphens"
+        mdnUrl="https://developer.mozilla.org/docs/Web/CSS/Reference/Properties/hyphens"
+      ></app-support-box>
+      <div class="demo__subnav" role="tablist" aria-label="Hyphens value">
+        @for (mode of modes; track mode.id) {
+          <button
+            type="button"
+            class="demo__subnav-item"
+            [class.demo__subnav-item--active]="selectedMode().id === mode.id"
+            (click)="selectMode(mode)"
+          >
+            <span class="demo__subnav-label">hyphens</span>
+            <strong>{{ mode.id }}</strong>
+          </button>
+        }
+      </div>
+    </div>
+    <div class="demo__code-block">
+      <pre><code>&lt;p lang="en"&gt;
+  An extra&amp;shy;ordinary sesqui&amp;shy;pedalian word.
+&lt;/p&gt;
+
+p &#123;
+  hyphens: {{ selectedMode().id }};
+&#125;</code></pre>
+    </div>
+  </header>
+
+  <div class="demo__surface">
+    <p class="hy-description">{{ selectedMode().description }}</p>
+
+    <div class="hy-layout">
+      <article class="hy-card">
+        <p class="hy-eyebrow">With soft hyphens (&amp;shy;)</p>
+        <p class="hy-text" lang="en" [style.hyphens]="selectedMode().id">
+          The tele&shy;communi&shy;cations depart&shy;ment announced an extra&shy;ordinary
+          reorgan&shy;ization of its infra&shy;structure, describing the counter&shy;productive
+          documen&shy;tation as incompre&shy;hensible and thoroughly unimagi&shy;native.
+        </p>
+      </article>
+
+      <article class="hy-card">
+        <p class="hy-eyebrow">Without soft hyphens</p>
+        <p class="hy-text" lang="en" [style.hyphens]="selectedMode().id">
+          The telecommunications department announced an extraordinary
+          reorganization of its infrastructure, describing the counterproductive
+          documentation as incomprehensible and thoroughly unimaginative.
+        </p>
+      </article>
+    </div>
+
+    <ul class="hy-notes">
+      <li>
+        A soft hyphen (<code>&amp;shy;</code>) is invisible until the browser needs
+        to break the word at that exact position.
+      </li>
+      <li>
+        <code>hyphens: auto</code> requires a <code>lang</code> attribute so the
+        browser knows which hyphenation dictionary to use.
+      </li>
+      <li>
+        Both columns are intentionally narrow so that lines are short enough to
+        force hyphenation, even on wide screens.
+      </li>
+    </ul>
+  </div>
+</section>
