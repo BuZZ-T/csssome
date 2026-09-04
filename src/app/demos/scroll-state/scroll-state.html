@@ -1,0 +1,105 @@
+<section class="demo">
+  <header class="demo__header">
+    <div class="demo__header-text">
+      <h1 class="demo__title">Scroll State</h1>
+      <p class="demo__desc">
+        Use <code>&#64;container scroll-state(stuck: ...)</code> to style a sticky
+        element while it is actually pinned to an edge. The sticky element becomes
+        a <code>container-type: scroll-state</code> container, and a child reacts
+        to the state — no JavaScript scroll listeners needed.
+      </p>
+      <app-support-box
+        chromeVersion="133"
+        edgeVersion="133"
+        firefoxVersion="No"
+        safariVersion="No"
+        baseline="Limited availability"
+        caniuseUrl="https://caniuse.com/mdn-css_at-rules_container_scroll-state_stuck"
+        mdnUrl="https://developer.mozilla.org/docs/Web/CSS/@container#stuck"
+      ></app-support-box>
+      <div class="demo__subnav" role="tablist" aria-label="Stuck edge">
+        @for (edge of edges; track edge) {
+          <button
+            type="button"
+            class="demo__subnav-item"
+            [class.demo__subnav-item--active]="selectedEdge() === edge"
+            (click)="selectEdge(edge)"
+          >
+            <span class="demo__subnav-label">stuck</span>
+            <strong>{{ edge }}</strong>
+          </button>
+        }
+      </div>
+    </div>
+    <div class="demo__code-block">
+      <pre><code>.sticky &#123;
+  position: sticky;
+  {{ selectedEdge() }}: 0;
+  container-type: scroll-state;
+&#125;
+
+.sticky > .inner &#123;
+  &#64;container scroll-state(stuck: {{ selectedEdge() }}) &#123;
+    background: #7c6af7;
+  &#125;
+&#125;</code></pre>
+    </div>
+  </header>
+
+  <div class="demo__surface">
+    <p class="ss-description">{{ explanations[selectedEdge()] }}</p>
+
+    <div class="ss-frame">
+      @if (selectedEdge() === 'top') {
+        <div class="ss-scroller">
+          @for (group of groups; track group.letter) {
+            <section class="ss-group">
+              <div class="ss-sticky-top">
+                <h2 class="ss-group-header">
+                  <span class="ss-letter">{{ group.letter }}</span>
+                  <span class="ss-badge">stuck: top</span>
+                </h2>
+              </div>
+              <ul class="ss-list">
+                @for (entry of group.entries; track entry) {
+                  <li class="ss-item">{{ entry }}</li>
+                }
+              </ul>
+            </section>
+          }
+        </div>
+      } @else {
+        <div class="ss-scroller">
+          <ul class="ss-list ss-list--flat">
+            @for (group of groups; track group.letter) {
+              @for (entry of group.entries; track entry) {
+                <li class="ss-item">{{ entry }}</li>
+              }
+            }
+          </ul>
+          <div class="ss-sticky-bottom">
+            <div class="ss-bar">
+              <span class="ss-bar-text">25 artists</span>
+              <span class="ss-badge">stuck: bottom</span>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+
+    <ul class="ss-notes">
+      <li>
+        The queried element must be a <em>descendant</em> of the scroll-state
+        container — an element cannot query its own state.
+      </li>
+      <li>
+        <code>stuck: top</code> only matches while the element is held away from
+        its natural position; it stops matching as soon as it scrolls normally again.
+      </li>
+      <li>
+        Wrap the rule in <code>&#64;supports (container-type: scroll-state)</code> to
+        progressively enhance browsers without support.
+      </li>
+    </ul>
+  </div>
+</section>

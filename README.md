@@ -12,6 +12,7 @@ Live demo: https://buzz-t.github.io/cssssome
 - **Hyphens** — manual (`&shy;`) and automatic line breaking with `hyphens`.
 - **Light Dark** — theme-aware color examples using `light-dark()`.
 - **Scroll Snap** — snap-scrolling demo with `scroll-snap-type`.
+- **Scroll State** — respond to sticky positioning state using `@container scroll-state()`.
 - **Shape Outside** — wrapped text around a transparent image using `shape-outside`.
 - **View Transition** — shared-element transitions between two sub-pages.
 

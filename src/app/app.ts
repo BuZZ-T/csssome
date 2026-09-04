@@ -7,6 +7,7 @@ import { FontVariantNumericDemo } from './demos/font-variant-numeric/font-varian
 import { HyphensDemo } from './demos/hyphens/hyphens';
 import { LightDarkDemo } from './demos/light-dark/light-dark';
 import { ScrollSnap } from './demos/scroll-snap/scroll-snap';
+import { ScrollStateDemo } from './demos/scroll-state/scroll-state';
 import { ShapeOutsideDemo } from './demos/mask-wrap/shape-outside';
 import { ContainerQueries } from './demos/container-queries/container-queries';
 import { AnimationTimeline } from './demos/animation-timeline/animation-timeline';
@@ -28,6 +29,7 @@ export class App {
     { id: 'hyphens', label: 'Hyphens', cssProperty: 'hyphens' },
     { id: 'light-dark', label: 'Light Dark', cssProperty: 'light-dark()' },
     { id: 'scroll-snap', label: 'Scroll Snap', cssProperty: 'scroll-snap-type' },
+    { id: 'scroll-state', label: 'Scroll State', cssProperty: '@container scroll-state()' },
     { id: 'shape-outside', label: 'Shape Outside', cssProperty: 'shape-outside' },
   ];
 
@@ -41,6 +43,7 @@ export class App {
     hyphens: HyphensDemo,
     'light-dark': LightDarkDemo,
     'scroll-snap': ScrollSnap,
+    'scroll-state': ScrollStateDemo,
     'shape-outside': ShapeOutsideDemo,
   };
 
