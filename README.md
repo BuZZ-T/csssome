@@ -14,7 +14,7 @@ Live demo: https://buzz-t.github.io/cssssome
 - **Scroll Snap** — snap-scrolling demo with `scroll-snap-type`.
 - **Scroll State** — respond to sticky positioning state using `@container scroll-state()`.
 - **Shape Outside** — wrapped text around a transparent image using `shape-outside`.
-- **View Transition** — shared-element transitions between two sub-pages.
+- **View Transition** — CSS-only cross-document transitions using `@view-transition`, `::view-transition-old` and `::view-transition-new` (no JavaScript).
 
 ## Notes
 

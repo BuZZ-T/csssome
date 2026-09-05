@@ -1,0 +1,85 @@
+<section class="demo">
+  <header class="demo__header">
+    <div class="demo__header-text">
+      <h1 class="demo__title">View Transition</h1>
+      <p class="demo__desc">
+        The <code>&#64;view-transition</code> at-rule opts a page into
+        cross-document view transitions. When a user follows a same-origin
+        link, the browser snapshots the outgoing and incoming pages and
+        animates between them using <code>::view-transition-old</code> and
+        <code>::view-transition-new</code> &mdash; entirely in CSS, with
+        no <code>document.startViewTransition()</code> call anywhere.
+      </p>
+      <app-support-box
+        chromeVersion="126"
+        edgeVersion="126"
+        firefoxVersion="No"
+        safariVersion="18.2"
+        baseline="Limited availability"
+        caniuseUrl="https://caniuse.com/mdn-css_at-rules_view-transition"
+        mdnUrl="https://developer.mozilla.org/docs/Web/CSS/@view-transition"
+      ></app-support-box>
+    </div>
+    <div class="demo__code-block">
+      <pre><code>&#64;view-transition &#123;
+  navigation: auto;
+&#125;
+
+.card &#123;
+  view-transition-name: card;
+&#125;
+
+.badge &#123;
+  view-transition-name: badge;
+  /* 64px on page A, 128px on page B */
+&#125;
+
+::view-transition-old(card) &#123;
+  animation: fade-slide-out .35s ease-in both;
+&#125;
+
+::view-transition-new(card) &#123;
+  animation: fade-slide-in .35s ease-out both;
+&#125;</code></pre>
+    </div>
+  </header>
+
+  <div class="demo__surface">
+    <p class="vt-description">
+      Because <code>@view-transition</code> only activates on real
+      <em>cross-document</em>, same-origin navigations, this demo embeds two
+      standalone HTML pages in an iframe below. Click the link inside the
+      frame to navigate between them with plain <code>&lt;a href&gt;</code>
+      tags &mdash; the fade/slide you see is driven purely by the CSS
+      shown above.
+    </p>
+
+    <div class="vt-frame">
+      <iframe
+        class="vt-iframe"
+        [src]="iframeSrc"
+        title="View transition demo"
+      ></iframe>
+    </div>
+
+    <ul class="vt-notes">
+      <li>
+        Cross-document view transitions require both pages to be
+        <strong>same-origin</strong> and both must opt in via
+        <code>&#64;view-transition &#123; navigation: auto; &#125;</code>.
+      </li>
+      <li>
+        Elements that share a <code>view-transition-name</code> on both
+        pages are matched automatically and morph between their captured
+        states — the badge image goes from 64&times;64 to 128&times;128 with
+        a smooth size animation, purely because both pages gave it the
+        same <code>view-transition-name</code>.
+      </li>
+      <li>
+        There is no JavaScript involved in triggering or driving the
+        transition &mdash; it happens purely because the browser navigated
+        to a new document.
+      </li>
+    </ul>
+  </div>
+</section>

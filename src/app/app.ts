@@ -11,6 +11,7 @@ import { ScrollStateDemo } from './demos/scroll-state/scroll-state';
 import { ShapeOutsideDemo } from './demos/mask-wrap/shape-outside';
 import { ContainerQueries } from './demos/container-queries/container-queries';
 import { AnimationTimeline } from './demos/animation-timeline/animation-timeline';
+import { ViewTransitionDemo } from './demos/view-transition/view-transition';
 
 @Component({
   imports: [Nav, NgComponentOutlet],
@@ -31,6 +32,7 @@ export class App {
     { id: 'scroll-snap', label: 'Scroll Snap', cssProperty: 'scroll-snap-type' },
     { id: 'scroll-state', label: 'Scroll State', cssProperty: '@container scroll-state()' },
     { id: 'shape-outside', label: 'Shape Outside', cssProperty: 'shape-outside' },
+    { id: 'view-transition', label: 'View Transition', cssProperty: '@view-transition' },
   ];
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -45,6 +47,7 @@ export class App {
     'scroll-snap': ScrollSnap,
     'scroll-state': ScrollStateDemo,
     'shape-outside': ShapeOutsideDemo,
+    'view-transition': ViewTransitionDemo,
   };
 
   activeId = signal(this.demos[0].id);

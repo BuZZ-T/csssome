@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Page A</title>
+    <style>
+      @view-transition {
+        navigation: auto;
+      }
+
+      :root {
+        color-scheme: dark;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Inter', system-ui, sans-serif;
+        background: #0a0a0f;
+        color: #f0f0f5;
+      }
+
+      .card {
+        width: min(90%, 360px);
+        padding: 2.5rem 2rem;
+        border-radius: 20px;
+        background: #15151d;
+        border: 1px solid #2a2a35;
+        text-align: center;
+        view-transition-name: card;
+      }
+
+      .badge {
+        width: 64px;
+        height: 64px;
+        margin: 0 auto 1rem;
+        view-transition-name: badge;
+      }
+
+      h1 {
+        margin: 0 0 0.75rem;
+        font-size: 1.5rem;
+      }
+
+      p {
+        margin: 0 0 1.5rem;
+        color: #9090a8;
+        line-height: 1.6;
+      }
+
+      a {
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        border-radius: 999px;
+        background: #7c6af7;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 700;
+      }
+
+      ::view-transition-old(card) {
+        animation: fade-slide-out 0.35s ease-in both;
+      }
+
+      ::view-transition-new(card) {
+        animation: fade-slide-in 0.35s ease-out both;
+      }
+
+      @keyframes fade-slide-out {
+        to {
+          opacity: 0;
+          transform: translateX(-40px);
+        }
+      }
+
+      @keyframes fade-slide-in {
+        from {
+          opacity: 0;
+          transform: translateX(40px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <img class="badge" src="badge.svg" alt="" width="64" height="64" />
+      <h1>Page A</h1>
+      <p>Click the link below to navigate to Page B. No JavaScript drives this transition &mdash; it is purely CSS.</p>
+      <a href="page-b.html">Go to Page B &rarr;</a>
+    </div>
+  </body>
+</html>
