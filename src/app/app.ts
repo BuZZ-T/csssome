@@ -3,6 +3,7 @@ import { NgComponentOutlet } from '@angular/common';
 import { Nav, DemoEntry } from './nav/nav';
 import { AspectRatioDemo } from './demos/aspect-ratio/aspect-ratio';
 import { BaseSelectDemo } from './demos/base-select/base-select';
+import { ClampDemo } from './demos/clamp/clamp';
 import { ContentVisibilityDemo } from './demos/content-visibility/content-visibility';
 import { FontVariantNumericDemo } from './demos/font-variant-numeric/font-variant-numeric';
 import { HyphensDemo } from './demos/hyphens/hyphens';
@@ -28,6 +29,7 @@ export class App {
     { id: 'animation-timeline', label: 'Animation Timeline', cssProperty: 'animation-timeline' },
     { id: 'aspect-ratio', label: 'Aspect Ratio', cssProperty: 'aspect-ratio' },
     { id: 'base-select', label: 'Base Select', cssProperty: 'appearance: base-select' },
+    { id: 'clamp', label: 'Clamp', cssProperty: 'clamp()' },
     { id: 'container-queries', label: 'Container Queries', cssProperty: 'container-name' },
     { id: 'content-visibility', label: 'Content Visibility', cssProperty: 'content-visibility' },
     { id: 'font-variant-numeric', label: 'Font Variant Numeric', cssProperty: 'font-variant-numeric' },
@@ -46,6 +48,7 @@ export class App {
     'animation-timeline': AnimationTimeline,
     'aspect-ratio': AspectRatioDemo,
     'base-select': BaseSelectDemo,
+    clamp: ClampDemo,
     'container-queries': ContainerQueries,
     'content-visibility': ContentVisibilityDemo,
     'font-variant-numeric': FontVariantNumericDemo,

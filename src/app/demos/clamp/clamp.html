@@ -1,0 +1,93 @@
+<section class="demo">
+  <header class="demo__header">
+    <div class="demo__header-text">
+      <h1 class="demo__title">Clamp</h1>
+      <p class="demo__desc">
+        Use <code>clamp(min, preferred, max)</code> to size elements fluidly
+        between a lower and an upper bound. It replaces whole stacks of
+        media queries with a single declaration.
+      </p>
+      <app-support-box
+        chromeVersion="79"
+        edgeVersion="79"
+        firefoxVersion="75"
+        safariVersion="13.1"
+        baseline="Widely available"
+        caniuseUrl="https://caniuse.com/css-math-functions"
+        mdnUrl="https://developer.mozilla.org/docs/Web/CSS/Reference/Functions/clamp"
+      ></app-support-box>
+      <div class="demo__subnav" role="tablist" aria-label="clamp() usage">
+        @for (mode of modes; track mode.id) {
+          <button
+            type="button"
+            class="demo__subnav-item"
+            [class.demo__subnav-item--active]="selectedMode().id === mode.id"
+            (click)="selectMode(mode)"
+          >
+            <span class="demo__subnav-label">clamp()</span>
+            <strong>{{ mode.label }}</strong>
+          </button>
+        }
+      </div>
+    </div>
+    <div class="demo__code-block">
+      <pre><code>.box &#123;
+  {{ selectedMode().property }}: {{ selectedMode().value }};
+&#125;</code></pre>
+    </div>
+  </header>
+
+  <div class="demo__surface">
+    <p class="cl-description">{{ selectedMode().description }}</p>
+
+    <div class="cl-controls">
+      <span class="cl-controls-label">Container width</span>
+      @for (width of widths; track width.id) {
+        <button
+          type="button"
+          class="cl-control-btn"
+          [class.cl-control-btn--active]="selectedWidth().id === width.id"
+          (click)="selectWidth(width)"
+        >
+          {{ width.label }}
+        </button>
+      }
+    </div>
+
+    <div class="cl-container" [style.width]="selectedWidth().size">
+      <div
+        class="cl-box"
+        [style.width]="boxWidth()"
+        [style.font-size]="boxFontSize()"
+        [style.padding]="boxPadding()"
+      >
+        <p class="cl-eyebrow">clamp()</p>
+        <h2 class="cl-box-title">Resize me</h2>
+        <p class="cl-box-text">
+          This box uses
+          <code>{{ selectedMode().property }}: {{ selectedMode().value }}</code>.
+          Switch the container width above (or resize the window) and watch it
+          adapt &mdash; without a single <code>&#64;media</code> rule.
+        </p>
+      </div>
+    </div>
+
+    <ul class="cl-notes">
+      <li>
+        <code>clamp(MIN, VAL, MAX)</code> is shorthand for
+        <code>max(MIN, min(VAL, MAX))</code> &mdash; the preferred value is
+        used as long as it stays inside the bounds.
+      </li>
+      <li>
+        The preferred value is usually a relative unit such as
+        <code>%</code>, <code>vw</code> or a <code>calc()</code> expression,
+        which is what makes the result fluid.
+      </li>
+      <li>
+        Because it&#39;s a plain value function, <code>clamp()</code> works for
+        any length, angle, time or number property &mdash; not just
+        <code>width</code>.
+      </li>
+    </ul>
+  </div>
+</section>
