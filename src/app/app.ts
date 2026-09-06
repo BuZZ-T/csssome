@@ -3,6 +3,7 @@ import { NgComponentOutlet } from '@angular/common';
 import { Nav, DemoEntry } from './nav/nav';
 import { AspectRatioDemo } from './demos/aspect-ratio/aspect-ratio';
 import { BaseSelectDemo } from './demos/base-select/base-select';
+import { ContentVisibilityDemo } from './demos/content-visibility/content-visibility';
 import { FontVariantNumericDemo } from './demos/font-variant-numeric/font-variant-numeric';
 import { HyphensDemo } from './demos/hyphens/hyphens';
 import { LightDarkDemo } from './demos/light-dark/light-dark';
@@ -27,6 +28,7 @@ export class App {
     { id: 'aspect-ratio', label: 'Aspect Ratio', cssProperty: 'aspect-ratio' },
     { id: 'base-select', label: 'Base Select', cssProperty: 'appearance: base-select' },
     { id: 'container-queries', label: 'Container Queries', cssProperty: 'container-name' },
+    { id: 'content-visibility', label: 'Content Visibility', cssProperty: 'content-visibility' },
     { id: 'font-variant-numeric', label: 'Font Variant Numeric', cssProperty: 'font-variant-numeric' },
     { id: 'highlight', label: 'Highlight', cssProperty: '::highlight()' },
     { id: 'hyphens', label: 'Hyphens', cssProperty: 'hyphens' },
@@ -43,6 +45,7 @@ export class App {
     'aspect-ratio': AspectRatioDemo,
     'base-select': BaseSelectDemo,
     'container-queries': ContainerQueries,
+    'content-visibility': ContentVisibilityDemo,
     'font-variant-numeric': FontVariantNumericDemo,
     highlight: HighlightDemo,
     hyphens: HyphensDemo,

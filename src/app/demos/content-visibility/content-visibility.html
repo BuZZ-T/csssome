@@ -1,0 +1,90 @@
+<section class="demo">
+  <header class="demo__header">
+    <div class="demo__header-text">
+      <h1 class="demo__title">Content Visibility</h1>
+      <p class="demo__desc">
+        Use <code>content-visibility</code> to let the browser skip rendering
+        work for off-screen content. <code>auto</code> defers layout and
+        paint until the element is near the viewport, which can massively
+        speed up pages with long lists of content.
+      </p>
+      <app-support-box
+        chromeVersion="85"
+        edgeVersion="85"
+        firefoxVersion="125"
+        safariVersion="18"
+        baseline="Newly available"
+        caniuseUrl="https://caniuse.com/css-content-visibility"
+        mdnUrl="https://developer.mozilla.org/docs/Web/CSS/Reference/Properties/content-visibility"
+      ></app-support-box>
+      <div class="demo__subnav" role="tablist" aria-label="content-visibility value">
+        @for (mode of modes; track mode.id) {
+          <button
+            type="button"
+            class="demo__subnav-item"
+            [class.demo__subnav-item--active]="selectedMode().id === mode.id"
+            (click)="selectMode(mode)"
+          >
+            <span class="demo__subnav-label">content-visibility</span>
+            <strong>{{ mode.id }}</strong>
+          </button>
+        }
+      </div>
+    </div>
+    <div class="demo__code-block">
+      <pre><code>.card &#123;
+  content-visibility: {{ selectedMode().id }};
+  contain-intrinsic-size: 0 220px;
+&#125;</code></pre>
+    </div>
+  </header>
+
+  <div class="demo__surface">
+    <p class="cv-description">{{ selectedMode().description }}</p>
+
+    <p class="cv-hint">
+      Scroll the list below. Open your browser&#39;s dev tools &ldquo;Rendering&rdquo;
+      panel and enable &ldquo;Layout Shift Regions&rdquo; / paint flashing to see
+      that off-screen cards are skipped when <code>auto</code> or
+      <code>hidden</code> is selected.
+    </p>
+
+    <div class="cv-list">
+      @for (item of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]; track item) {
+        <article class="cv-card" [style.content-visibility]="selectedMode().id" style="contain-intrinsic-size: 0 220px;">
+          <p class="cv-eyebrow">Card #{{ item }}</p>
+          <h2 class="cv-card-title">Section {{ item }}</h2>
+          <p class="cv-card-text">
+            This card&#39;s rendering is controlled by <code>content-visibility:
+            {{ selectedMode().id }}</code>. When set to <code>auto</code>, the
+            browser skips layout and paint while it is off-screen and restores
+            it automatically as it scrolls into view. When set to
+            <code>hidden</code>, the content stays skipped even when scrolled
+            into view, but its internal render state is preserved for a cheap
+            re-render later.
+          </p>
+        </article>
+      }
+    </div>
+
+    <ul class="cv-notes">
+      <li>
+        <code>contain-intrinsic-size</code> reserves space for skipped content
+        so the page doesn&#39;t jump around as elements enter and leave the
+        rendering subtree.
+      </li>
+      <li>
+        <code>content-visibility: hidden</code> behaves like
+        <code>display: none</code> for rendering purposes, but unlike
+        <code>display: none</code> it keeps any cached render state, so
+        toggling it back to <code>visible</code> is cheaper than rendering
+        from scratch.
+      </li>
+      <li>
+        Try switching to <code>hidden</code> above &mdash; the cards below
+        collapse to their reserved intrinsic size and their content is no
+        longer rendered.
+      </li>
+    </ul>
+  </div>
+</section>
