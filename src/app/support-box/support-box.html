@@ -3,6 +3,7 @@
   <table class="support-table">
     <thead>
       <tr>
+        <th></th>
         <th>Chrome</th>
         <th>Edge</th>
         <th>Firefox</th>
@@ -11,10 +12,22 @@
     </thead>
     <tbody>
       <tr>
+        <th scope="row">First version</th>
         <td>{{ chromeVersion() }}</td>
         <td>{{ edgeVersion() }}</td>
         <td>{{ firefoxVersion() }}</td>
         <td>{{ safariVersion() }}</td>
+      </tr>
+      <tr>
+        <th scope="row">Current version</th>
+        @if (currentVersionsLoading()) {
+          <td colspan="4">Loading&hellip;</td>
+        } @else {
+          <td>{{ currentVersions()?.chrome ?? '—' }}</td>
+          <td>{{ currentVersions()?.edge ?? '—' }}</td>
+          <td>{{ currentVersions()?.firefox ?? '—' }}</td>
+          <td>{{ currentVersions()?.safari ?? '—' }}</td>
+        }
       </tr>
     </tbody>
   </table>
