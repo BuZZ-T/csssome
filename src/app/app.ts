@@ -7,6 +7,7 @@ import { ContentVisibilityDemo } from './demos/content-visibility/content-visibi
 import { FontVariantNumericDemo } from './demos/font-variant-numeric/font-variant-numeric';
 import { HyphensDemo } from './demos/hyphens/hyphens';
 import { LightDarkDemo } from './demos/light-dark/light-dark';
+import { ScrollBehaviorDemo } from './demos/scroll-behavior/scroll-behavior';
 import { ScrollSnap } from './demos/scroll-snap/scroll-snap';
 import { ScrollStateDemo } from './demos/scroll-state/scroll-state';
 import { ShapeOutsideDemo } from './demos/mask-wrap/shape-outside';
@@ -33,6 +34,7 @@ export class App {
     { id: 'highlight', label: 'Highlight', cssProperty: '::highlight()' },
     { id: 'hyphens', label: 'Hyphens', cssProperty: 'hyphens' },
     { id: 'light-dark', label: 'Light Dark', cssProperty: 'light-dark()' },
+    { id: 'scroll-behavior', label: 'Scroll Behavior', cssProperty: 'scroll-behavior' },
     { id: 'scroll-snap', label: 'Scroll Snap', cssProperty: 'scroll-snap-type' },
     { id: 'scroll-state', label: 'Scroll State', cssProperty: '@container scroll-state()' },
     { id: 'shape-outside', label: 'Shape Outside', cssProperty: 'shape-outside' },
@@ -50,6 +52,7 @@ export class App {
     highlight: HighlightDemo,
     hyphens: HyphensDemo,
     'light-dark': LightDarkDemo,
+    'scroll-behavior': ScrollBehaviorDemo,
     'scroll-snap': ScrollSnap,
     'scroll-state': ScrollStateDemo,
     'shape-outside': ShapeOutsideDemo,

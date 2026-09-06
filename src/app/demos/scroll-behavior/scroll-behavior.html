@@ -1,0 +1,109 @@
+<section class="demo">
+  <header class="demo__header">
+    <div class="demo__header-text">
+      <h1 class="demo__title">Scroll Behavior</h1>
+      <p class="demo__desc">
+        Use <code>scroll-behavior</code> to control whether programmatic
+        scrolling (e.g. anchor links, <code>scrollIntoView()</code>) happens
+        instantly or is animated smoothly.
+      </p>
+      <app-support-box
+        chromeVersion="61"
+        edgeVersion="79"
+        firefoxVersion="36"
+        safariVersion="15.4"
+        baseline="Widely available"
+        caniuseUrl="https://caniuse.com/css-scroll-behavior"
+        mdnUrl="https://developer.mozilla.org/docs/Web/CSS/Reference/Properties/scroll-behavior"
+      ></app-support-box>
+      <div class="demo__subnav" role="tablist" aria-label="scroll-behavior value">
+        @for (mode of modes; track mode.id) {
+          <button
+            type="button"
+            class="demo__subnav-item"
+            [class.demo__subnav-item--active]="selectedMode().id === mode.id"
+            (click)="selectMode(mode)"
+          >
+            <span class="demo__subnav-label">scroll-behavior</span>
+            <strong>{{ mode.id }}</strong>
+          </button>
+        }
+      </div>
+    </div>
+    <div class="demo__code-block">
+      <pre><code>.scroll-area &#123;
+  scroll-behavior: {{ selectedMode().id }};
+&#125;</code></pre>
+    </div>
+  </header>
+
+  <div class="demo__surface">
+    <p class="sb-description">{{ selectedMode().description }}</p>
+
+    <div class="sb-nav">
+      <button type="button" class="sb-nav-btn" (click)="scrollToSection(1)">Section 1</button>
+      <button type="button" class="sb-nav-btn" (click)="scrollToSection(2)">Section 2</button>
+      <button type="button" class="sb-nav-btn" (click)="scrollToSection(3)">Section 3</button>
+      <button type="button" class="sb-nav-btn" (click)="scrollToSection(4)">Section 4</button>
+    </div>
+
+    <div
+      class="sb-scroll-area"
+      [style.scroll-behavior]="selectedMode().id"
+      #scrollArea
+    >
+      <article class="sb-card" id="sb-section-1">
+        <p class="sb-eyebrow">Section 1</p>
+        <h2 class="sb-card-title">Instant vs. smooth</h2>
+        <p class="sb-card-text">
+          Click one of the buttons above to jump to a section further down
+          this scroll container. With <code>auto</code> the jump is
+          instant; with <code>smooth</code> the browser animates the scroll.
+        </p>
+      </article>
+
+      <article class="sb-card" id="sb-section-2">
+        <p class="sb-eyebrow">Section 2</p>
+        <h2 class="sb-card-title">scrollIntoView()</h2>
+        <p class="sb-card-text">
+          The navigation buttons call <code>element.scrollIntoView()</code>,
+          which respects the <code>scroll-behavior</code> of its scrolling
+          container instead of needing an explicit
+          <code>&#123; behavior: 'smooth' &#125;</code> option.
+        </p>
+      </article>
+
+      <article class="sb-card" id="sb-section-3">
+        <p class="sb-eyebrow">Section 3</p>
+        <h2 class="sb-card-title">Anchor links</h2>
+        <p class="sb-card-text">
+          The same effect applies to in-page anchor links
+          (<code>&lt;a href="#id"&gt;</code>) and to scrolling triggered by
+          the keyboard, without any JavaScript at all.
+        </p>
+      </article>
+
+      <article class="sb-card" id="sb-section-4">
+        <p class="sb-eyebrow">Section 4</p>
+        <h2 class="sb-card-title">The last section</h2>
+        <p class="sb-card-text">
+          You made it! Try switching back to <code>auto</code> above and
+          jumping between sections again to feel the difference.
+        </p>
+      </article>
+    </div>
+
+    <ul class="sb-notes">
+      <li>
+        <code>scroll-behavior</code> only affects scrolls triggered
+        programmatically or via anchor navigation &mdash; it does not
+        change manual scrolling with the mouse wheel, trackpad or touch.
+      </li>
+      <li>
+        It can be set on any scroll container, not just
+        <code>html</code>/<code>body</code> &mdash; here it&#39;s set on the
+        scrollable area itself.
+      </li>
+    </ul>
+  </div>
+</section>
