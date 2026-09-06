@@ -79,9 +79,9 @@
   width: min(40vw, 320px);
   min-width: 220px;
   margin: 0 1.25rem 0.75rem 0;
-  shape-outside: url('/images/shape-outside.svg');
+  shape-outside: url('./shape-outside.svg');
   shape-margin: 1rem;
-  -webkit-shape-outside: url('/images/shape-outside.svg');
+  -webkit-shape-outside: url('./shape-outside.svg');
   -webkit-shape-margin: 1rem;
 }
 
@@ -90,8 +90,8 @@
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
-  -webkit-mask-image: url('/images/shape-outside.svg');
-  mask-image: url('/images/shape-outside.svg');
+  -webkit-mask-image: url('./shape-outside.svg');
+  mask-image: url('./shape-outside.svg');
   -webkit-mask-size: 100% 100%;
   mask-size: 100% 100%;
   -webkit-mask-repeat: no-repeat;
