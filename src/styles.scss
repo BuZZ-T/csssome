@@ -66,3 +66,22 @@ html, body {
 .support-box__links a {
   color: #8fb6ff;
 }
+
+// ::highlight() targets text ranges registered via the CSS Custom Highlight
+// API (CSS.highlights). It is a global/root-level pseudo-element that cannot
+// be scoped by Angular's per-component style encapsulation, so these rules
+// live in the global stylesheet instead of the Highlight demo's own SCSS.
+::highlight(demo-highlight-keyword) {
+  color: #fff;
+  background-color: #7c6af7;
+}
+
+::highlight(demo-highlight-warning) {
+  color: #1a1a1a;
+  background-color: #f7c948;
+}
+
+::highlight(demo-highlight-success) {
+  color: #0a2e1c;
+  background-color: #4ad991;
+}

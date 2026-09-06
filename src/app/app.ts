@@ -12,6 +12,7 @@ import { ShapeOutsideDemo } from './demos/mask-wrap/shape-outside';
 import { ContainerQueries } from './demos/container-queries/container-queries';
 import { AnimationTimeline } from './demos/animation-timeline/animation-timeline';
 import { ViewTransitionDemo } from './demos/view-transition/view-transition';
+import { HighlightDemo } from './demos/highlight/highlight';
 
 @Component({
   imports: [Nav, NgComponentOutlet],
@@ -27,6 +28,7 @@ export class App {
     { id: 'base-select', label: 'Base Select', cssProperty: 'appearance: base-select' },
     { id: 'container-queries', label: 'Container Queries', cssProperty: 'container-name' },
     { id: 'font-variant-numeric', label: 'Font Variant Numeric', cssProperty: 'font-variant-numeric' },
+    { id: 'highlight', label: 'Highlight', cssProperty: '::highlight()' },
     { id: 'hyphens', label: 'Hyphens', cssProperty: 'hyphens' },
     { id: 'light-dark', label: 'Light Dark', cssProperty: 'light-dark()' },
     { id: 'scroll-snap', label: 'Scroll Snap', cssProperty: 'scroll-snap-type' },
@@ -42,6 +44,7 @@ export class App {
     'base-select': BaseSelectDemo,
     'container-queries': ContainerQueries,
     'font-variant-numeric': FontVariantNumericDemo,
+    highlight: HighlightDemo,
     hyphens: HyphensDemo,
     'light-dark': LightDarkDemo,
     'scroll-snap': ScrollSnap,

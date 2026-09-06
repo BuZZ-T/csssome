@@ -1,0 +1,99 @@
+<section class="demo">
+  <header class="demo__header">
+    <div class="demo__header-text">
+      <h1 class="demo__title">Highlight</h1>
+      <p class="demo__desc">
+        The <code>::highlight()</code> pseudo-element styles arbitrary text
+        ranges registered with the CSS Custom Highlight API
+        (<code>CSS.highlights</code>) &mdash; without wrapping the text in
+        any extra markup like <code>&lt;mark&gt;</code> or <code>&lt;span&gt;</code>.
+      </p>
+      <app-support-box
+        chromeVersion="105"
+        edgeVersion="105"
+        firefoxVersion="140"
+        safariVersion="17.2"
+        baseline="Newly available"
+        caniuseUrl="https://caniuse.com/mdn-api_highlight"
+        mdnUrl="https://developer.mozilla.org/docs/Web/API/CSS_Custom_Highlight_API"
+      ></app-support-box>
+      <div class="demo__subnav" role="tablist" aria-label="Highlight term">
+        @for (term of terms; track term.id) {
+          <button
+            type="button"
+            class="demo__subnav-item"
+            [class.demo__subnav-item--active]="selectedTerm().id === term.id"
+            (click)="selectTerm(term)"
+          >
+            <span class="demo__subnav-label">highlight</span>
+            <strong>{{ term.label }}</strong>
+          </button>
+        }
+      </div>
+    </div>
+    <div class="demo__code-block">
+      <pre><code>const range = new Range();
+range.setStart(textNode, start);
+range.setEnd(textNode, end);
+
+CSS.highlights.set(
+  'demo-highlight-keyword',
+  new Highlight(range)
+);</code></pre>
+      <pre><code>::highlight(demo-highlight-keyword) &#123;
+  color: #fff;
+  background-color: #7c6af7;
+&#125;
+
+::highlight(demo-highlight-warning) &#123;
+  color: #1a1a1a;
+  background-color: #f7c948;
+&#125;
+
+::highlight(demo-highlight-success) &#123;
+  color: #0a2e1c;
+  background-color: #4ad991;
+&#125;</code></pre>
+    </div>
+  </header>
+
+  <div class="demo__surface">
+    <p class="hl-description">
+      Choose a word group above, then look at the paragraph below: the
+      matching words are highlighted purely via CSS, even though there is no
+      <code>&lt;mark&gt;</code> element anywhere in the DOM. JavaScript only
+      finds the text ranges and registers them &mdash; every visual change
+      (color, background) is applied by the <code>::highlight()</code> rule.
+    </p>
+
+    <article class="hl-card">
+      <p class="hl-text" #text>
+        The CSS Custom Highlight API lets you style text ranges without any
+        extra markup. You create <code>Range</code> objects, add them to a
+        <code>Highlight</code>, and register it on <code>CSS.highlights</code>
+        under a name. The browser then paints those ranges using the
+        <code>::highlight()</code> pseudo-element, matched by that same
+        name. Because the highlighting is applied via JavaScript and CSS,
+        you can restyle it instantly, and the same ranges can be reused for
+        search results, spell-check hints, or collaborative editing cursors.
+      </p>
+    </article>
+
+    <ul class="hl-notes">
+      <li>
+        <code>::highlight()</code> only supports a limited set of properties:
+        <code>color</code>, <code>background-color</code>,
+        <code>text-decoration</code>, and a few others &mdash; no
+        <code>display</code> or box-model changes.
+      </li>
+      <li>
+        Multiple named highlights can be active at once, and they stack in
+        the order they were registered on <code>CSS.highlights</code>.
+      </li>
+      <li>
+        Because ranges are plain DOM <code>Range</code> objects, highlights
+        can even span across multiple elements.
+      </li>
+    </ul>
+  </div>
+</section>
