@@ -7,13 +7,16 @@
 
   <ul class="nav__list">
     @for (entry of entries(); track entry.id) {
-      <li
-        class="nav__item"
-        [class.nav__item--active]="entry.id === activeId()"
-        (click)="select.emit(entry.id)"
-      >
-        <span class="nav__item-label">{{ entry.label }}</span>
-        <code class="nav__item-prop">{{ entry.cssProperty }}</code>
+      <li>
+        <a
+          class="nav__item"
+          [routerLink]="['/', entry.id]"
+          routerLinkActive="nav__item--active"
+          ariaCurrentWhenActive="page"
+        >
+          <span class="nav__item-label">{{ entry.label }}</span>
+          <code class="nav__item-prop">{{ entry.cssProperty }}</code>
+        </a>
       </li>
     }
   </ul>

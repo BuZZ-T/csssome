@@ -1,4 +1,5 @@
-import { Component, input, output } from '@angular/core';
+import { Component, input } from '@angular/core';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 export interface DemoEntry {
   id: string;
@@ -8,12 +9,10 @@ export interface DemoEntry {
 
 @Component({
   selector: 'app-nav',
-  imports: [],
+  imports: [RouterLink, RouterLinkActive],
   templateUrl: './nav.html',
   styleUrl: './nav.scss',
 })
 export class Nav {
   entries = input.required<DemoEntry[]>();
-  activeId = input.required<string>();
-  select = output<string>();
 }

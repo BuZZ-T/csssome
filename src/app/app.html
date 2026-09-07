@@ -1,12 +1,8 @@
 <div class="layout">
   <aside class="layout__nav">
-    <app-nav
-      [entries]="demos"
-      [activeId]="activeId()"
-      (select)="activeId.set($event)"
-    />
+    <app-nav [entries]="demos" />
   </aside>
   <main class="layout__content">
-    <ng-container *ngComponentOutlet="activeComponent" />
+    <router-outlet />
   </main>
 </div>

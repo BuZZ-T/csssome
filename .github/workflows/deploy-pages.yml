@@ -34,6 +34,12 @@ jobs:
       - name: Build for GitHub Pages
         run: npm run build:github
 
+      # GitHub Pages has no server-side rewrite, so a deep link such as
+      # /csssome/clamp would 404. Serving a copy of index.html as 404.html lets
+      # the Angular router take over and resolve the route on the client.
+      - name: Add SPA fallback for deep links
+        run: cp dist/csssome/browser/index.html dist/csssome/browser/404.html
+
       - name: Deploy to gh-pages branch
         uses: peaceiris/actions-gh-pages@v4
         with:
