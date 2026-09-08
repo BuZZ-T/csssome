@@ -29,6 +29,44 @@
           <td>{{ currentVersions()?.safari ?? '—' }}</td>
         }
       </tr>
+      <tr class="support-table__you-row">
+        <th scope="row">Your browser</th>
+        <td
+          [class.support-table__you-cell]="detectedBrowser.id === 'chrome'"
+          [class.support-table__you-cell--supported]="detectedBrowser.id === 'chrome' && isFeatureSupported === true"
+          [class.support-table__you-cell--unsupported]="detectedBrowser.id === 'chrome' && isFeatureSupported === false"
+        >
+          @if (detectedBrowser.id === 'chrome') { {{ isFeatureSupported ? '✓' : '✗' }} {{ detectedBrowser.version }} }
+        </td>
+        <td
+          [class.support-table__you-cell]="detectedBrowser.id === 'edge'"
+          [class.support-table__you-cell--supported]="detectedBrowser.id === 'edge' && isFeatureSupported === true"
+          [class.support-table__you-cell--unsupported]="detectedBrowser.id === 'edge' && isFeatureSupported === false"
+        >
+          @if (detectedBrowser.id === 'edge') { {{ isFeatureSupported ? '✓' : '✗' }} {{ detectedBrowser.version }} }
+        </td>
+        <td
+          [class.support-table__you-cell]="detectedBrowser.id === 'firefox'"
+          [class.support-table__you-cell--supported]="detectedBrowser.id === 'firefox' && isFeatureSupported === true"
+          [class.support-table__you-cell--unsupported]="detectedBrowser.id === 'firefox' && isFeatureSupported === false"
+        >
+          @if (detectedBrowser.id === 'firefox') { {{ isFeatureSupported ? '✓' : '✗' }} {{ detectedBrowser.version }} }
+        </td>
+        <td
+          [class.support-table__you-cell]="detectedBrowser.id === 'safari'"
+          [class.support-table__you-cell--supported]="detectedBrowser.id === 'safari' && isFeatureSupported === true"
+          [class.support-table__you-cell--unsupported]="detectedBrowser.id === 'safari' && isFeatureSupported === false"
+        >
+          @if (detectedBrowser.id === 'safari') { {{ isFeatureSupported ? '✓' : '✗' }} {{ detectedBrowser.version }} }
+        </td>
+      </tr>
+      @if (!detectedBrowser.id) {
+        <tr>
+          <td colspan="5" class="support-table__you-note">
+            Your browser could not be identified.
+          </td>
+        </tr>
+      }
     </tbody>
   </table>
   <p class="support-box__baseline">

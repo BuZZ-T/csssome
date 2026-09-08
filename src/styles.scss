@@ -49,6 +49,27 @@ html, body {
   color: #c8c8d8;
 }
 
+.support-table__you-cell {
+  background: rgba(143, 182, 255, 0.18);
+  color: #e6e6f5;
+  font-weight: 700;
+  text-align: center;
+}
+
+.support-table td.support-table__you-cell--supported {
+  color: #7fe0a0;
+}
+
+.support-table td.support-table__you-cell--unsupported {
+  color: #f28b8b;
+}
+
+.support-table__you-note {
+  color: #8f8fa0;
+  font-style: italic;
+  text-align: center;
+}
+
 .support-box__links {
   margin: 0.55rem 0 0;
   font-size: 0.74rem;
