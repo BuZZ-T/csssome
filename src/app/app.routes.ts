@@ -7,6 +7,7 @@ import { BaseSelectDemo } from './demos/base-select/base-select';
 import { ClampDemo } from './demos/clamp/clamp';
 import { ContainerQueries } from './demos/container-queries/container-queries';
 import { ContentVisibilityDemo } from './demos/content-visibility/content-visibility';
+import { CornerShapeDemo } from './demos/corner-shape/corner-shape';
 import { FontVariantNumericDemo } from './demos/font-variant-numeric/font-variant-numeric';
 import { HighlightDemo } from './demos/highlight/highlight';
 import { HyphensDemo } from './demos/hyphens/hyphens';
@@ -62,6 +63,12 @@ export const DEMOS: DemoDefinition[] = [
     label: 'Content Visibility',
     cssProperty: 'content-visibility',
     component: ContentVisibilityDemo,
+  },
+  {
+    id: 'corner-shape',
+    label: 'Corner Shape',
+    cssProperty: 'corner-shape',
+    component: CornerShapeDemo,
   },
   {
     id: 'font-variant-numeric',

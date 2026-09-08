@@ -1,0 +1,94 @@
+<section class="demo">
+  <header class="demo__header">
+    <div class="demo__header-text">
+      <h1 class="demo__title">Corner Shape</h1>
+      <p class="demo__desc">
+        Use <code>corner-shape</code> together with <code>border-radius</code>
+        to change what kind of curve fills a rounded corner &mdash; from
+        classic circular arcs to concave scoops, bevels, notches and
+        superellipse-based squircles.
+      </p>
+      <app-support-box
+        chromeVersion="139"
+        edgeVersion="139"
+        firefoxVersion="No"
+        safariVersion="No"
+        baseline="Limited availability"
+        caniuseUrl="https://caniuse.com/mdn-css_properties_corner-shape"
+        mdnUrl="https://developer.mozilla.org/docs/Web/CSS/Reference/Properties/corner-shape"
+      ></app-support-box>
+      <div class="demo__subnav" role="tablist" aria-label="corner-shape value">
+        @for (value of values; track value.id) {
+          <button
+            type="button"
+            class="demo__subnav-item"
+            [class.demo__subnav-item--active]="selectedValue().id === value.id"
+            (click)="selectValue(value)"
+          >
+            <span class="demo__subnav-label">corner-shape</span>
+            <strong>{{ value.label }}</strong>
+          </button>
+        }
+      </div>
+    </div>
+    <div class="demo__code-block">
+      <pre><code>.box &#123;
+  border-radius: {{ selectedRadius().value }};
+  corner-shape: {{ selectedValue().id }};
+&#125;</code></pre>
+    </div>
+  </header>
+
+  <div class="demo__surface">
+    <p class="cs-description">{{ selectedValue().description }}</p>
+
+    <div class="cs-controls">
+      <span class="cs-controls-label">border-radius</span>
+      @for (radius of radiusSizes; track radius.id) {
+        <button
+          type="button"
+          class="cs-control-btn"
+          [class.cs-control-btn--active]="selectedRadius().id === radius.id"
+          (click)="selectRadius(radius)"
+        >
+          {{ radius.label }}
+        </button>
+      }
+    </div>
+
+    <div class="cs-gallery">
+      @for (value of values; track value.id) {
+        <article class="cs-cell">
+          <div
+            class="cs-box"
+            [class.cs-box--active]="selectedValue().id === value.id"
+            [style.border-radius]="selectedRadius().value"
+            [style.corner-shape]="value.id"
+          ></div>
+          <code class="cs-cell-label">{{ value.label }}</code>
+        </article>
+      }
+    </div>
+
+    <ul class="cs-notes">
+      <li>
+        <code>corner-shape</code> only takes effect where <code>border-radius</code>
+        is non-zero &mdash; it changes the curve used to fill the rounded
+        corner, it doesn&#39;t create rounding on its own.
+      </li>
+      <li>
+        Every named keyword (<code>round</code>, <code>scoop</code>,
+        <code>bevel</code>, <code>notch</code>, <code>square</code>,
+        <code>squircle</code>) is really just a shorthand for a specific
+        <code>superellipse()</code> exponent.
+      </li>
+      <li>
+        Like <code>border-radius</code>, the four corners can be set
+        independently with the longhands <code>corner-top-left-shape</code>,
+        <code>corner-top-right-shape</code>,
+        <code>corner-bottom-right-shape</code> and
+        <code>corner-bottom-left-shape</code>.
+      </li>
+    </ul>
+  </div>
+</section>
