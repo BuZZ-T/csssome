@@ -142,11 +142,20 @@
 }
 
 .hy-text {
-  margin: 0;
+  margin: 0 0 0.85rem;
   color: #d0d0e0;
   font-size: 1.05rem;
   line-height: 1.8;
   text-align: justify;
+}
+
+.hy-mode-desc {
+  margin: 0;
+  padding-top: 0.85rem;
+  border-top: 1px solid #2a2a35;
+  color: #9090a8;
+  font-size: 0.85rem;
+  line-height: 1.6;
 }
 
 .hy-notes {

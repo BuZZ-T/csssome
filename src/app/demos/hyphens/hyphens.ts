@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { SupportBoxComponent } from '../../support-box/support-box';
 
 type HyphensMode = {
@@ -30,10 +30,4 @@ export class HyphensDemo {
         'The browser hyphenates automatically using the dictionary of the language set via the lang attribute. Soft hyphens still take precedence.',
     },
   ];
-
-  selectedMode = signal<HyphensMode>(this.modes[1]);
-
-  selectMode(mode: HyphensMode) {
-    this.selectedMode.set(mode);
-  }
 }
