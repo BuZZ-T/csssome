@@ -13,6 +13,7 @@ import { HighlightDemo } from './demos/highlight/highlight';
 import { HyphensDemo } from './demos/hyphens/hyphens';
 import { LightDarkDemo } from './demos/light-dark/light-dark';
 import { ShapeOutsideDemo } from './demos/mask-wrap/shape-outside';
+import { PaintOrderDemo } from './demos/paint-order/paint-order';
 import { ScrollBehaviorDemo } from './demos/scroll-behavior/scroll-behavior';
 import { ScrollSnap } from './demos/scroll-snap/scroll-snap';
 import { ScrollStateDemo } from './demos/scroll-state/scroll-state';
@@ -93,6 +94,12 @@ export const DEMOS: DemoDefinition[] = [
     label: 'Light Dark',
     cssProperty: 'light-dark()',
     component: LightDarkDemo,
+  },
+  {
+    id: 'paint-order',
+    label: 'Paint Order',
+    cssProperty: 'paint-order',
+    component: PaintOrderDemo,
   },
   {
     id: 'scroll-behavior',

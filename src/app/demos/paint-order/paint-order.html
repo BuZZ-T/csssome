@@ -1,0 +1,96 @@
+<section class="demo">
+  <header class="demo__header">
+    <div class="demo__header-text">
+      <h1 class="demo__title">Paint Order</h1>
+      <p class="demo__desc">
+        <code>paint-order</code> controls the order in which the fill and
+        stroke of an SVG shape or text are painted. It's most visible with a
+        thick stroke, which by default is painted on top of the fill and can
+        hide it &mdash; reordering lets the fill sit on top instead.
+      </p>
+      <app-support-box
+        chromeVersion="35"
+        edgeVersion="79"
+        firefoxVersion="60"
+        safariVersion="8"
+        baseline="Widely available"
+        caniuseUrl="https://caniuse.com/mdn-css_properties_paint-order"
+        mdnUrl="https://developer.mozilla.org/docs/Web/CSS/paint-order"
+      ></app-support-box>
+      <div class="demo__subnav" role="tablist" aria-label="paint-order value">
+        @for (value of values; track value.id) {
+          <button
+            type="button"
+            class="demo__subnav-item"
+            [class.demo__subnav-item--active]="selectedValue().id === value.id"
+            (click)="selectValue(value)"
+          >
+            <span class="demo__subnav-label">paint-order</span>
+            <strong>{{ value.label }}</strong>
+          </button>
+        }
+      </div>
+    </div>
+    <div class="demo__code-block">
+      <pre><code>text, .shape &#123;
+  paint-order: {{ selectedValue().id }};
+  fill: #ffd166;
+  stroke: #4d3fc0;
+  stroke-width: 8px;
+&#125;</code></pre>
+    </div>
+  </header>
+
+  <div class="demo__surface">
+    <p class="po-description">{{ selectedValue().description }}</p>
+
+    <div class="po-preview">
+      <svg viewBox="0 0 360 140" class="po-svg" role="img" aria-label="Text demonstrating paint-order">
+        <text
+          x="180"
+          y="95"
+          text-anchor="middle"
+          class="po-text"
+          [style.paint-order]="selectedValue().id"
+        >CSSSOME</text>
+      </svg>
+    </div>
+
+    <div class="po-gallery">
+      @for (value of values; track value.id) {
+        <article
+          class="po-cell"
+          [class.po-cell--active]="selectedValue().id === value.id"
+          (click)="selectValue(value)"
+        >
+          <svg viewBox="0 0 200 80" class="po-svg po-svg--small">
+            <text x="100" y="52" text-anchor="middle" class="po-text po-text--small" [style.paint-order]="value.id">
+              Aa
+            </text>
+          </svg>
+          <code class="po-cell-label">{{ value.label }}</code>
+        </article>
+      }
+    </div>
+
+    <ul class="po-notes">
+      <li>
+        Painting order only matters when fill and stroke visually overlap
+        &mdash; that's why a wide <code>stroke-width</code> is used here to
+        make the effect obvious.
+      </li>
+      <li>
+        <code>paint-order</code> applies to any SVG shape or text element, not
+        just <code>&lt;text&gt;</code> &mdash; it works the same way on
+        <code>&lt;path&gt;</code>, <code>&lt;circle&gt;</code> and other
+        shapes with both a fill and a stroke.
+      </li>
+      <li>
+        Any keyword you omit is simply appended afterwards in its default
+        relative order, so <code>paint-order: stroke</code> is shorthand for
+        <code>stroke fill</code> (plus <code>markers</code>, which has no
+        effect outside SVG's own marker elements).
+      </li>
+    </ul>
+  </div>
+</section>
