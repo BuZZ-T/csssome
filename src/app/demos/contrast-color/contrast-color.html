@@ -1,0 +1,107 @@
+<section class="demo">
+  <header class="demo__header">
+    <div class="demo__header-text">
+      <h1 class="demo__title">Contrast Color</h1>
+      <p class="demo__desc">
+        <code>contrast-color()</code> picks black or white for you &mdash;
+        whichever gives better contrast against a given background color. No
+        more manually computing luminance to decide if text should be light
+        or dark.
+      </p>
+      <app-support-box
+        chromeVersion="147"
+        edgeVersion="147"
+        firefoxVersion="146"
+        safariVersion="26"
+        baseline="Newly available"
+        caniuseUrl="https://caniuse.com/mdn-css_types_color_contrast-color"
+        mdnUrl="https://developer.mozilla.org/docs/Web/CSS/color_value/contrast-color"
+      ></app-support-box>
+      <div class="demo__subnav" role="tablist" aria-label="Background color">
+        @for (swatch of swatches; track swatch.id) {
+          <button
+            type="button"
+            class="demo__subnav-item"
+            [class.demo__subnav-item--active]="selectedSwatch().id === swatch.id"
+            (click)="selectSwatch(swatch)"
+          >
+            <span class="demo__subnav-swatch" [style.background]="swatch.value"></span>
+            <strong>{{ swatch.label }}</strong>
+          </button>
+        }
+      </div>
+    </div>
+    <div class="demo__code-block">
+      <pre><code>.card &#123;
+  background: {{ selectedSwatch().value }};
+  color: contrast-color({{ selectedSwatch().value }});
+&#125;</code></pre>
+    </div>
+  </header>
+
+  <div class="demo__surface">
+    <p class="cc-description">
+      Pick a swatch above, or use the custom color picker below, and watch
+      the label color flip between black and white automatically via
+      <code>contrast-color()</code> &mdash; no media query or JavaScript
+      required.
+    </p>
+
+    <div class="cc-preview">
+      <div class="cc-card" [style.background]="selectedSwatch().value">
+        <span class="cc-card-label" [style.color]="'contrast-color(' + selectedSwatch().value + ')'">
+          Sample text
+        </span>
+      </div>
+    </div>
+
+    <div class="cc-custom">
+      <label class="cc-custom-label" for="cc-color-input">Custom color</label>
+      <input
+        id="cc-color-input"
+        type="color"
+        class="cc-custom-input"
+        [value]="customColor()"
+        (input)="onCustomColorChange($any($event.target).value)"
+      />
+      <code class="cc-custom-value">{{ customColor() }}</code>
+    </div>
+
+    <div class="cc-preview cc-preview--custom">
+      <div class="cc-card" [style.background]="customColor()">
+        <span class="cc-card-label" [style.color]="'contrast-color(' + customColor() + ')'">
+          Sample text
+        </span>
+      </div>
+    </div>
+
+    <div class="cc-gallery">
+      @for (swatch of swatches; track swatch.id) {
+        <article class="cc-cell">
+          <div class="cc-cell-box" [style.background]="swatch.value">
+            <span class="cc-cell-label" [style.color]="'contrast-color(' + swatch.value + ')'">Aa</span>
+          </div>
+          <code class="cc-cell-value">{{ swatch.value }}</code>
+        </article>
+      }
+    </div>
+
+    <ul class="cc-notes">
+      <li>
+        <code>contrast-color()</code> only ever returns pure black or white
+        &mdash; it's a simple, fast heuristic, not a full WCAG contrast
+        calculation with arbitrary target colors.
+      </li>
+      <li>
+        It's most useful for labels, icons or text placed on
+        dynamically-generated or user-supplied background colors, where you
+        can't know the color ahead of time.
+      </li>
+      <li>
+        Unlike <code>light-dark()</code>, it doesn't depend on
+        <code>color-scheme</code> or user preference &mdash; it purely
+        reacts to the background color you pass in.
+      </li>
+    </ul>
+  </div>
+</section>
