@@ -1,0 +1,122 @@
+<section class="demo">
+  <header class="demo__header">
+    <div class="demo__header-text">
+      <h1 class="demo__title">Progress</h1>
+      <p class="demo__desc">
+        <code>progress()</code> is a CSS math function that computes how far
+        a value sits between a start and an end point, returning a number
+        between <code>0</code> and <code>1</code> (and beyond, if the value
+        overshoots). It turns "map this value onto a 0&ndash;1 range" from a
+        JavaScript one-liner into pure CSS.
+      </p>
+      <app-support-box
+        chromeVersion="138"
+        edgeVersion="138"
+        firefoxVersion="155"
+        safariVersion="26"
+        baseline="Newly available"
+        caniuseUrl="https://caniuse.com/mdn-css_types_progress"
+        mdnUrl="https://developer.mozilla.org/docs/Web/CSS/progress"
+      ></app-support-box>
+      <div class="demo__subnav" role="tablist" aria-label="Value range">
+        @for (range of ranges; track range.id) {
+          <button
+            type="button"
+            class="demo__subnav-item"
+            [class.demo__subnav-item--active]="selectedRange().id === range.id"
+            (click)="selectRange(range)"
+          >
+            <span class="demo__subnav-label">range</span>
+            <strong>{{ range.label }}</strong>
+          </button>
+        }
+      </div>
+    </div>
+    <div class="demo__code-block">
+      <pre><code>.bar-fill &#123;
+  width: calc(100% * progress(
+    {{ value() }},
+    {{ selectedRange().start }},
+    {{ selectedRange().end }}
+  ));
+&#125;</code></pre>
+    </div>
+  </header>
+
+  <div class="demo__surface">
+    <p class="pf-description">
+      Drag the slider to change the value. The bar width, its label and its
+      color are all driven purely by <code>progress()</code> &mdash; no
+      JavaScript recalculates the percentage.
+    </p>
+
+    <div class="pf-control">
+      <input
+        type="range"
+        class="pf-slider"
+        [min]="selectedRange().start"
+        [max]="selectedRange().end"
+        [step]="(selectedRange().end - selectedRange().start) / 200"
+        [value]="value()"
+        (input)="onValueChange($any($event.target).value)"
+      />
+      <code class="pf-control-value">{{ value() }}{{ selectedRange().unit }}</code>
+    </div>
+
+    <div class="pf-bar">
+      <div
+        class="pf-bar-fill"
+        [style.width]="'calc(100% * progress(' + value() + ', ' + selectedRange().start + ', ' + selectedRange().end + '))'"
+      >
+        <span class="pf-bar-label">{{ progressPercent }}</span>
+      </div>
+    </div>
+
+    <div class="pf-gallery">
+      @for (range of ranges; track range.id) {
+        <article class="pf-cell">
+          <code class="pf-cell-label">{{ range.label }}</code>
+          <div class="pf-bar pf-bar--small">
+            <div
+              class="pf-bar-fill"
+              [style.width]="
+                'calc(100% * progress(' +
+                (range.id === selectedRange().id ? value() : range.start) +
+                ', ' +
+                range.start +
+                ', ' +
+                range.end +
+                '))'
+              "
+            ></div>
+          </div>
+        </article>
+      }
+    </div>
+
+    <ul class="pf-notes">
+      <li>
+        <code>progress(value, start, end)</code> returns
+        <code>(value - start) / (end - start)</code> as a plain number, so it
+        can be multiplied into any length, percentage or angle with
+        <code>calc()</code>.
+      </li>
+      <li>
+        Values outside the <code>[start, end]</code> range aren't clamped
+        &mdash; the result can go below <code>0</code> or above
+        <code>1</code>, which is useful for overshoot effects.
+      </li>
+      <li>
+        It complements <code>clamp()</code> and container queries as part of
+        CSS's growing set of math functions for responsive design without
+        JavaScript.
+      </li>
+      <li>
+        All three arguments must share the same unit (or all be unitless)
+        &mdash; that's why the temperature example uses plain numbers rather
+        than <code>&deg;C</code>, which isn't a real CSS unit and would make
+        the whole expression invalid.
+      </li>
+    </ul>
+  </div>
+</section>

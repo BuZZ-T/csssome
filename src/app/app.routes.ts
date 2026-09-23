@@ -15,6 +15,7 @@ import { HyphensDemo } from './demos/hyphens/hyphens';
 import { LightDarkDemo } from './demos/light-dark/light-dark';
 import { ShapeOutsideDemo } from './demos/mask-wrap/shape-outside';
 import { PaintOrderDemo } from './demos/paint-order/paint-order';
+import { ProgressFunctionDemo } from './demos/progress-function/progress-function';
 import { ScrollBehaviorDemo } from './demos/scroll-behavior/scroll-behavior';
 import { ScrollSnap } from './demos/scroll-snap/scroll-snap';
 import { ScrollStateDemo } from './demos/scroll-state/scroll-state';
@@ -107,6 +108,12 @@ export const DEMOS: DemoDefinition[] = [
     label: 'Paint Order',
     cssProperty: 'paint-order',
     component: PaintOrderDemo,
+  },
+  {
+    id: 'progress-function',
+    label: 'Progress',
+    cssProperty: 'progress()',
+    component: ProgressFunctionDemo,
   },
   {
     id: 'scroll-behavior',
