@@ -1,5 +1,7 @@
 # csssome
 
+**csssome** — not only awesome, but csssome. An Angular single-page application that showcases modern CSS features with interactive, hands-on demos. Each feature gets its own page with a live example you can play with, the CSS behind it, and a browser support table that also tells you whether your current browser supports it. Pick a feature from the navigation on the left to try it out.
+
 Live demo: https://buzz-t.github.io/cssssome
 
 ## Features
